@@ -34,7 +34,7 @@ http://127.0.0.1:4180/
   - 배터리
   - 인간성
   - 정신
-- Daily play is driven by random events.
+- Daily play is driven by random events, with LIGHT events mixed in to keep small moments of warmth alive.
 - Hidden counters drive tension and CRITICAL events.
 - Main story appears conditionally, not every day.
 - Unavailable choices are hidden.
@@ -75,7 +75,7 @@ Start day
 -> next day
 ```
 
-Current random event count: 53.
+Current random event count: 70.
 
 ## Development Notes
 
