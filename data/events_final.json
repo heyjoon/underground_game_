@@ -1,0 +1,60 @@
+[
+  {
+    "id": "F001A",
+    "chapter": "Final: 지상문",
+    "title": "지상문",
+    "type": ["final"],
+    "location": "지상문",
+    "repeatable": false,
+    "priority": 90,
+    "conditions": {"has_flags": ["SURFACE_TRUTH_FOUND"], "missing_flags": ["FINAL_CHOICE_MADE"]},
+    "text": "지상문 앞에 사람들이 모인다.\n\nAI는 아직 문을 열지 않았다. 최하층 사람들은 당신을 본다.\n\n이제 무엇을 공개하고, 누구를 데리고 갈지 결정해야 한다.",
+    "choices": [
+      {
+        "text": "진실을 방송하고 지상문을 연다.",
+        "effects": {"human": 1, "sanity": -1},
+        "flags_on": ["BROADCAST_TRUTH", "FINAL_CHOICE_MADE", "LAST_MESSAGE_SEEN"],
+        "next_event": "ending_check"
+      },
+      {
+        "text": "AI와 제한 개방을 협상한다.",
+        "effects": {"sanity": 1},
+        "flags_on": ["AI_NEGOTIATED", "FINAL_CHOICE_MADE", "LAST_MESSAGE_SEEN"],
+        "next_event": "ending_check"
+      },
+      {
+        "text": "생태구역을 먼저 복원하고 문을 늦게 연다.",
+        "requiredCharacter": "seojin",
+        "effects": {"food": 1, "human": 1},
+        "characterFlags": {"ecologicalRestoration": 1},
+        "flags_on": ["FINAL_CHOICE_MADE", "LAST_MESSAGE_SEEN"],
+        "next_event": "ending_check"
+      },
+      {
+        "text": "질서를 위해 지상문 개방을 통제한다.",
+        "requiredCharacter": "taeo",
+        "effects": {"human": -1},
+        "characterFlags": {"authoritarian": 1},
+        "flags_on": ["FINAL_CHOICE_MADE", "LAST_MESSAGE_SEEN"],
+        "next_event": "ending_check"
+      },
+      {
+        "text": "아는 길로 사람들을 함께 빼낸다.",
+        "requiredCharacter": "harin",
+        "effects": {"human": 1},
+        "characterFlags": {"hiddenRoute": 1},
+        "flags_on": ["FINAL_CHOICE_MADE", "LAST_MESSAGE_SEEN"],
+        "next_event": "ending_check"
+      },
+      {
+        "text": "단독 탈출 경로로 혼자 나간다.",
+        "requiredCharacter": "harin",
+        "conditions": {"has_items": ["단독 탈출 경로"]},
+        "effects": {"human": -1},
+        "characterFlags": {"selfishEscape": 1},
+        "flags_on": ["FINAL_CHOICE_MADE", "LAST_MESSAGE_SEEN"],
+        "next_event": "ending_check"
+      }
+    ]
+  }
+]

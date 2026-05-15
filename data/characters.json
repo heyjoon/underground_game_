@@ -1,0 +1,41 @@
+[
+  {
+    "id": "seojin",
+    "name": "윤서진",
+    "role": "전직 생태공학자",
+    "story": "폐쇄 생태구역의 설계 자료를 기억하고 있다. 사람보다 시스템을 먼저 보는 버릇이 있지만, 아직 생명을 포기하지 않았다.",
+    "stats": {"hp": 1, "food": 3, "battery": 2, "human": 2, "sanity": 3},
+    "trait": {
+      "name": "생태 관리",
+      "description": "식량 회복과 감소 이벤트에서 유리하며, 생태구역/감염/산소 관련 전용 선택지를 얻는다."
+    },
+    "weakness": "체력 피해 이벤트에서 추가 피해를 받을 수 있다.",
+    "startFlags": ["ecologicalRestoration"]
+  },
+  {
+    "id": "taeo",
+    "name": "강태오",
+    "role": "전 지하보안대 대장",
+    "story": "아크-7의 폭동 진압 기록에 이름이 남아 있다. 질서를 세울 수 있지만, 그 질서가 누구를 위한 것인지는 아직 답하지 못했다.",
+    "stats": {"hp": 3, "food": 2, "battery": 1, "human": 1, "sanity": 2},
+    "trait": {
+      "name": "강압적 통솔",
+      "description": "전투, 폭동, 약탈, 통제 이벤트에서 피해나 자원 손실을 줄이는 전용 선택지를 얻는다."
+    },
+    "weakness": "인간성을 회복하기 어렵다.",
+    "startFlags": ["authoritarian"]
+  },
+  {
+    "id": "harin",
+    "name": "이하린",
+    "role": "지하 배달꾼 / 길잡이",
+    "story": "닫힌 문보다 좁은 통로를 먼저 본다. 길을 잘 찾지만, 도망치는 법에 너무 익숙하다.",
+    "stats": {"hp": 2, "food": 1, "battery": 3, "human": 3, "sanity": 2},
+    "trait": {
+      "name": "숨겨진 통로",
+      "description": "탐색, 우회, 탈출, 폐쇄구역 이벤트에서 추가 보상이나 피해 회피 전용 선택지를 얻는다."
+    },
+    "weakness": "식량 손실 이벤트에 취약하다.",
+    "startFlags": ["hiddenRoute"]
+  }
+]

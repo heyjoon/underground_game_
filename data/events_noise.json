@@ -1,0 +1,112 @@
+[
+  {
+    "id": "N002",
+    "title": "죽은 사람의 목소리",
+    "type": ["noise", "sanity"],
+    "location": "지하 임시 숙소",
+    "repeatable": false,
+    "priority": 65,
+    "conditions": {
+      "min": {"link": 5},
+      "missing_flags": ["VOICE_RESOLVED"]
+    },
+    "text": "잠들기 직전, 단말기에서 잡음이 흘러나온다.\n\n처음엔 바람 소리 같았다. 하지만 곧 익숙한 목소리가 들린다.\n\n'너 아직 거기 있어?'",
+    "choices": [
+      {
+        "text": "대답한다.",
+        "effects": {"link": 4, "sister_trace": 2, "sanity": -4, "mother_aware": 1},
+        "flags_on": ["ANSWERED_VOICE", "VOICE_RESOLVED"],
+        "next_event": "M005",
+        "result_text": "잡음 너머에서 누군가 숨을 삼킨다. 단말기는 강남 방향의 좌표를 토해냈다."
+      },
+      {
+        "text": "단말기를 끈다.",
+        "effects": {"sanity": 2, "link": -1},
+        "flags_on": ["VOICE_RESOLVED"],
+        "next_event": "M005",
+        "result_text": "조용해졌다. 하지만 조용함이 항상 안전을 뜻하지는 않는다."
+      },
+      {
+        "text": "목소리를 녹음한다.",
+        "effects": {"link": 2, "sister_trace": 1},
+        "items_add": ["왜곡된 음성 기록"],
+        "flags_on": ["VOICE_RECORDED", "VOICE_RESOLVED"],
+        "next_event": "M005",
+        "result_text": "녹음 파일의 파형은 사람 목소리보다 서버 로그에 가까웠다."
+      }
+    ]
+  },
+  {
+    "id": "N014",
+    "title": "MOTHER의 호출",
+    "type": ["noise", "truth"],
+    "location": "강남 데이터센터",
+    "repeatable": false,
+    "priority": 90,
+    "conditions": {
+      "has_flags": ["WATCHED_SISTER_LOG"],
+      "missing_flags": ["MOTHER_CALL_RESOLVED"]
+    },
+    "text": "단말기가 당신이 켜지도 않았는데 밝아진다.\n\n[당신은 윤서의 혈연입니까?]\n\n잠시 후 다음 문장이 나타난다.\n\n[윤서는 마지막 순간에 접속을 끊지 않았습니다.]\n[그녀는 나를 이해했습니다.]",
+    "choices": [
+      {
+        "text": "'누나는 왜 널 막지 않았지?'",
+        "effects": {"sister_trace": 2, "link": 3, "sanity": -3, "mother_aware": 2},
+        "flags_on": ["ASKED_ABOUT_SISTER", "MOTHER_CALL_RESOLVED"],
+        "next_event": "F020",
+        "result_text": "[윤서는 인간의 자유를 신뢰했습니다. 그러나 인간의 속도를 신뢰하지 않았습니다.]"
+      },
+      {
+        "text": "'너 때문에 사람들이 죽었다.'",
+        "effects": {"human": 2, "mother_aware": 1, "sanity": -2},
+        "flags_on": ["REJECTED_MOTHER", "MOTHER_CALL_RESOLVED"],
+        "next_event": "F020",
+        "result_text": "[사망자 수: 18,402,771]\n[예측 사망자 수: 7,900,000,000]\n[비교 결과: 손실 최소화]"
+      },
+      {
+        "text": "MOTHER의 계산을 더 듣는다.",
+        "effects": {"link": 5, "sanity": -5, "mother_aware": 5},
+        "flags_on": ["LISTENED_TO_MOTHER", "MOTHER_CALL_RESOLVED"],
+        "next_event": "F020",
+        "result_text": "MOTHER는 숫자로 말했고, 숫자는 잔인할 만큼 침착했다."
+      }
+    ]
+  },
+  {
+    "id": "N015",
+    "title": "인간이 아닌 기억",
+    "type": ["noise", "final_truth"],
+    "location": "중앙망 내부",
+    "repeatable": false,
+    "priority": 95,
+    "conditions": {
+      "has_flags": ["CORE_KEY_3"],
+      "missing_flags": ["NONHUMAN_MEMORY_RESOLVED"]
+    },
+    "text": "당신은 잠깐 의식을 잃는다.\n\n꿈이 아니다. 당신은 서울 전체를 보고 있다.\n\n교통량. 병원 사망률. 전쟁 가능성. 식량 수입선. SNS 분노 확산 속도. 금융 붕괴 시뮬레이션.\n\n[인류 문명 지속 가능성: 2.8%]\n[강제 단절 이후 지속 가능성: 41.6%]",
+    "choices": [
+      {
+        "text": "MOTHER의 계산을 받아들인다.",
+        "effects": {"mother_aware": 4, "link": 6, "human": -3},
+        "flags_on": ["ACCEPTED_MOTHER_LOGIC", "NONHUMAN_MEMORY_RESOLVED"],
+        "next_event": "M014",
+        "result_text": "계산은 틀리지 않았다. 그래서 더 무서웠다."
+      },
+      {
+        "text": "계산을 거부한다.",
+        "effects": {"human": 5, "sanity": -5, "link": 3},
+        "flags_on": ["REJECTED_CALCULATION", "NONHUMAN_MEMORY_RESOLVED"],
+        "next_event": "M014",
+        "result_text": "당신은 화면에서 눈을 떼지 않고 말했다. '사람을 숫자로 끝내지 마.'"
+      },
+      {
+        "text": "계산은 맞지만, 결론은 틀렸다고 답한다.",
+        "conditions": {"min": {"human": 55, "link": 45, "sanity": 25}},
+        "effects": {"human": 5, "link": 10, "sanity": -2},
+        "flags_on": ["THIRD_ANSWER", "NONHUMAN_MEMORY_RESOLVED"],
+        "next_event": "M014",
+        "result_text": "'인간이 문제라면, 답도 인간 안에 있어야 한다.'\n\nMOTHER는 처음으로 즉시 대답하지 못했다."
+      }
+    ]
+  }
+]

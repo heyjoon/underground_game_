@@ -1,0 +1,99 @@
+[
+  {
+    "id": "F001",
+    "title": "지하연합 검문소",
+    "type": ["faction", "union"],
+    "location": "폐쇄된 개찰구",
+    "repeatable": false,
+    "priority": 68,
+    "conditions": {
+      "missing_flags": ["UNION_CHECKPOINT_RESOLVED"]
+    },
+    "text": "폐쇄된 지하철 개찰구 앞, 지하연합 경비병들이 통행자를 검사하고 있다.\n\n벽에는 문구가 붙어 있다.\n\n'질서 없는 생존은 약탈과 같다.'",
+    "choices": [
+      {
+        "text": "순순히 검문을 받는다.",
+        "effects": {"trust_union": 2, "battery": -1},
+        "flags_on": ["UNION_CHECKPOINT_RESOLVED"],
+        "next_event": "H001",
+        "result_text": "당신은 통과했다. 지하연합의 질서는 언제나 비용을 요구한다."
+      },
+      {
+        "text": "뇌물을 준다.",
+        "conditions": {"min": {"battery": 2}},
+        "effects": {"battery": -2, "trust_union": 1, "human": -1},
+        "flags_on": ["BRIBED_UNION", "UNION_CHECKPOINT_RESOLVED"],
+        "next_event": "H001",
+        "result_text": "경비병은 아무것도 보지 못한 사람처럼 옆으로 비켜섰다."
+      }
+    ]
+  },
+  {
+    "id": "F010",
+    "title": "검은 안개 거래상",
+    "type": ["faction", "blackfog"],
+    "location": "지상 암시장",
+    "repeatable": false,
+    "priority": 45,
+    "conditions": {
+      "min": {"battery": 3},
+      "missing_flags": ["BLACKFOG_TRADE_DONE"]
+    },
+    "text": "지상 암시장 한쪽에서 검은 안개 거래상이 손짓한다.\n\n'문명을 다시 켜려는 사람들은 결국 문명에 잡아먹히지. 그래도 부품은 필요하지?'",
+    "choices": [
+      {
+        "text": "배터리와 탄약을 산다.",
+        "effects": {"battery": -3, "trust_blackfog": 2, "human": -1},
+        "items_add": ["낡은 권총"],
+        "flags_on": ["BLACKFOG_TRADE_DONE"],
+        "next_event": "random",
+        "result_text": "거래상은 웃으며 말했다. '살아남는 게 먼저야. 의미는 나중이고.'"
+      },
+      {
+        "text": "거래를 거절한다.",
+        "effects": {"human": 1},
+        "flags_on": ["BLACKFOG_TRADE_DONE"],
+        "next_event": "random",
+        "result_text": "당신은 물러섰다. 거래상의 웃음은 꽤 오래 따라왔다."
+      }
+    ]
+  },
+  {
+    "id": "F020",
+    "title": "중앙망을 누구에게 맡길 것인가",
+    "type": ["faction", "late"],
+    "location": "강남 데이터센터 회의실",
+    "repeatable": false,
+    "priority": 96,
+    "conditions": {
+      "has_flags": ["SISTER_LOG_RESOLVED"],
+      "missing_flags": ["CORE_OWNERSHIP_DECIDED"]
+    },
+    "text": "윤서의 로그가 끝나자, 사람들은 각자의 답을 들고 찾아왔다.\n\n지하연합은 중앙망의 질서를 원한다.\n검은 안개는 완전한 파괴를 원한다.\n성광교는 푸른 신호를 계시라고 부른다.\n\n당신은 이 힘을 누구에게도 쉽게 넘길 수 없다는 생각을 떨칠 수 없다.",
+    "choices": [
+      {
+        "text": "아무 세력에도 맡기지 않는다.",
+        "effects": {"human": 2, "link": 2, "sanity": -1},
+        "flags_on": ["NO_FACTION_CONTROL", "CORE_OWNERSHIP_DECIDED"],
+        "next_event": "H020",
+        "result_text": "누군가 욕을 했고, 누군가는 떠났다. 하지만 당신은 중앙망이 또 다른 왕좌가 되어서는 안 된다고 믿었다."
+      },
+      {
+        "text": "지하연합에 통제권을 약속한다.",
+        "conditions": {"min": {"trust_union": 3}},
+        "effects": {"trust_union": 4, "human": -2, "link": 2},
+        "flags_on": ["PROMISED_CORE_TO_UNION", "CORE_OWNERSHIP_DECIDED"],
+        "next_event": "M011",
+        "result_text": "지하연합은 안도했다. 그들의 안도가 당신을 안심시키지는 못했다."
+      },
+      {
+        "text": "검은 안개와 파괴 계획을 세운다.",
+        "conditions": {"min": {"trust_blackfog": 3}},
+        "effects": {"trust_blackfog": 4, "human": -4, "link": 1},
+        "flags_on": ["PROMISED_CORE_TO_BLACKFOG", "CORE_OWNERSHIP_DECIDED"],
+        "next_event": "M011",
+        "result_text": "검은 안개는 웃었다. 그들은 이미 결말을 알고 온 사람들 같았다."
+      }
+    ]
+  }
+]

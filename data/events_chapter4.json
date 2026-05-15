@@ -1,0 +1,67 @@
+[
+  {
+    "id": "C301",
+    "chapter": "Chapter 4: 폐쇄 생태구역",
+    "title": "폐쇄 생태구역",
+    "type": ["chapter", "food", "ecology", "damage"],
+    "location": "폐쇄 생태구역",
+    "repeatable": false,
+    "priority": 140,
+    "conditions": {"has_flags": ["BLACKOUT_TRUTH_DONE"], "missing_flags": ["ECO_ZONE_DONE"]},
+    "text": "생태구역의 유리돔은 안쪽에서 습기로 흐려져 있다.\n\n식물은 아직 살아 있다. 하지만 일부 잎은 검게 변했고, 산소 농도 경고등이 느리게 깜빡인다.",
+    "choices": [
+      {
+        "text": "먹을 수 있는 잎을 조금 채집한다.",
+        "tags": ["food"],
+        "effects": {"food": 1, "sanity": -1},
+        "flags_on": ["ECO_ZONE_DONE"],
+        "next_event": "C302"
+      },
+      {
+        "text": "샘플을 분석해 산소 순환 장치를 재가동한다.",
+        "requiredCharacter": "seojin",
+        "tags": ["food", "ecology"],
+        "effects": {"food": 1, "sanity": 1},
+        "characterFlags": {"ecologicalRestoration": 1, "truth": 1},
+        "items_add": ["생태구역 산소 로그"],
+        "flags_on": ["ECO_ZONE_DONE"],
+        "next_event": "C302"
+      },
+      {
+        "text": "검게 변한 잎을 무시하고 빠르게 지나간다.",
+        "tags": ["damage"],
+        "effects": {"hp": -1},
+        "flags_on": ["ECO_ZONE_DONE"],
+        "next_event": "C302"
+      }
+    ]
+  },
+  {
+    "id": "C302",
+    "chapter": "Chapter 4: 폐쇄 생태구역",
+    "title": "감염된 뿌리",
+    "type": ["chapter", "ecology", "food"],
+    "location": "생태구역 하부",
+    "repeatable": false,
+    "priority": 130,
+    "conditions": {"has_flags": ["ECO_ZONE_DONE"], "missing_flags": ["ROOT_EVENT_DONE"]},
+    "text": "생태구역 아래에는 뿌리와 배관이 뒤엉켜 있다.\n\n배관에는 중앙 AI의 명령 로그가 남아 있다.\n\n[최하층 산소 공급: 제한]\n[생태 자원 보존 우선]",
+    "choices": [
+      {
+        "text": "뿌리 사이의 식량 캡슐을 꺼낸다.",
+        "tags": ["food"],
+        "effects": {"food": 1},
+        "flags_on": ["ROOT_EVENT_DONE"],
+        "next_event": "C401"
+      },
+      {
+        "text": "복원 가능한 뿌리를 표시한다.",
+        "requiredCharacter": "seojin",
+        "effects": {"human": 1},
+        "characterFlags": {"ecologicalRestoration": 1},
+        "flags_on": ["ROOT_EVENT_DONE"],
+        "next_event": "C401"
+      }
+    ]
+  }
+]

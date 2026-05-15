@@ -1,0 +1,22 @@
+# Runtime/local files
+saves/
+*.log
+*.zip
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Node/package cache if added later
+node_modules/
+npm-debug.log*
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local environment
+.env
+.env.*

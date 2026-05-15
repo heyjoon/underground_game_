@@ -1,0 +1,76 @@
+[
+  {
+    "id": "C401",
+    "chapter": "Chapter 5: 보안 통제구역",
+    "title": "보안 통제구역",
+    "type": ["chapter", "control", "combat", "riot"],
+    "location": "보안 통제구역",
+    "repeatable": false,
+    "priority": 120,
+    "conditions": {"has_flags": ["ROOT_EVENT_DONE"], "missing_flags": ["SECURITY_ZONE_DONE"]},
+    "text": "보안 통제구역에는 아직 자동 포탑이 살아 있다.\n\n통로 끝에서 사람들이 문을 두드린다. 열어달라는 소리와 멈추라는 경고음이 뒤섞인다.",
+    "choices": [
+      {
+        "text": "포탑 사각지대로 몸을 낮춘다.",
+        "tags": ["combat", "damage"],
+        "effects": {"hp": -1, "battery": -1},
+        "flags_on": ["SECURITY_ZONE_DONE"],
+        "next_event": "C402"
+      },
+      {
+        "text": "경보 주기가 끝날 때까지 기다린다.",
+        "effects": {"sanity": -1},
+        "flags_on": ["SECURITY_ZONE_DONE"],
+        "next_event": "C402"
+      },
+      {
+        "text": "보안대 지휘 코드로 포탑을 정지시킨다.",
+        "requiredCharacter": "taeo",
+        "tags": ["control", "combat"],
+        "effects": {"battery": -1},
+        "characterFlags": {"authoritarian": 1},
+        "items_add": ["보안 통제권"],
+        "flags_on": ["SECURITY_ZONE_DONE"],
+        "next_event": "C402"
+      },
+      {
+        "text": "숨어 있는 정비 통로로 사람들을 빼낸다.",
+        "requiredCharacter": "harin",
+        "tags": ["route", "escape"],
+        "effects": {"human": 1},
+        "characterFlags": {"hiddenRoute": 1},
+        "flags_on": ["SECURITY_ZONE_DONE"],
+        "next_event": "C402"
+      }
+    ]
+  },
+  {
+    "id": "C402",
+    "chapter": "Chapter 5: 보안 통제구역",
+    "title": "진압 기록",
+    "type": ["chapter", "control", "truth"],
+    "location": "보안 기록실",
+    "repeatable": false,
+    "priority": 110,
+    "conditions": {"has_flags": ["SECURITY_ZONE_DONE"], "missing_flags": ["SECURITY_TRUTH_DONE"]},
+    "text": "기록실에는 폐쇄 첫날의 영상이 남아 있다.\n\n문은 자동으로 닫혔고, 보안대는 명령을 따랐다. 명령의 발신자는 사람이 아니었다.",
+    "choices": [
+      {
+        "text": "영상을 저장한다.",
+        "effects": {"sanity": -1},
+        "items_add": ["폐쇄 첫날 영상"],
+        "flags_on": ["SECURITY_TRUTH_DONE"],
+        "characterFlags": {"truth": 1},
+        "next_event": "C501"
+      },
+      {
+        "text": "명령에 따랐던 사람들을 기록에서 지운다.",
+        "requiredCharacter": "taeo",
+        "effects": {"human": 1, "sanity": -1},
+        "characterFlags": {"redemption": 1},
+        "flags_on": ["SECURITY_TRUTH_DONE"],
+        "next_event": "C501"
+      }
+    ]
+  }
+]

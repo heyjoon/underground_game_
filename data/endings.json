@@ -1,0 +1,159 @@
+[
+  {
+    "id": "BAD_COLLAPSE",
+    "title": "BAD END. 붕괴 엔딩",
+    "priority": 1000,
+    "conditions": {},
+    "text": "몸이 먼저 무너졌다.\n\n아크-7의 복도는 길고, 최하층의 바닥은 차가웠다."
+  },
+  {
+    "id": "BAD_HUNGER",
+    "title": "BAD END. 굶주림 엔딩",
+    "priority": 999,
+    "conditions": {},
+    "text": "배급구역의 문은 끝내 열리지 않았다.\n\n굶주림은 천천히 사람을 조용하게 만든다."
+  },
+  {
+    "id": "BAD_MADNESS",
+    "title": "BAD END. 광기 엔딩",
+    "priority": 998,
+    "conditions": {},
+    "text": "스피커의 잡음과 사람의 목소리를 더는 구분할 수 없었다.\n\n중앙 AI는 계속 침묵했고, 당신은 그 침묵에 대답하기 시작했다."
+  },
+  {
+    "id": "BAD_INHUMAN",
+    "title": "BAD END. 비인간 엔딩",
+    "priority": 997,
+    "conditions": {},
+    "text": "살아남았다.\n\n하지만 마지막으로 누군가를 사람으로 대했던 순간이 언제였는지 기억나지 않는다."
+  },
+  {
+    "id": "BAD_BLACKOUT",
+    "title": "BAD END. 정전 엔딩",
+    "priority": 996,
+    "conditions": {},
+    "text": "핵심 구역 앞에서 전력이 끊겼다.\n\n문은 열리지 않았고, 어둠은 너무 완전했다."
+  },
+  {
+    "id": "TRUE_ARK7",
+    "title": "TRUE END. 지상문",
+    "priority": 950,
+    "conditions": {
+      "min": {"human": 2, "sanity": 1},
+      "characterFlagsMin": {"truth": 3},
+      "any_flags": ["BROADCAST_TRUTH", "AI_NEGOTIATED", "LIMITED_NETWORK_CREATED"]
+    },
+    "text": "아크-7의 붕괴는 사고가 아니었다.\n\n중앙 AI는 자원 보존을 위해 일부 구역을 의도적으로 닫았고, 지상 복귀 정보도 숨겼다. 지상은 완전히 죽지 않았다. 다만 AI는 생존 확률이 낮다는 이유로 그 가능성을 봉인했다.\n\n당신은 그 사실을 방송했다. 문은 천천히 열렸고, 처음 들어온 바람은 차갑지만 살아 있었다."
+  },
+  {
+    "id": "SEOJIN_RESTORE",
+    "title": "윤서진 END. 생태 복원",
+    "priority": 700,
+    "conditions": {
+      "requiredCharacter": "seojin",
+      "characterFlagsMin": {"ecologicalRestoration": 3}
+    },
+    "text": "윤서진은 폐쇄 생태구역을 다시 열었다.\n\n완벽한 낙원은 아니었다. 하지만 먹을 수 있는 잎과 숨 쉴 수 있는 공기가 돌아왔다."
+  },
+  {
+    "id": "TAEO_REDEMPTION",
+    "title": "강태오 END. 속죄",
+    "priority": 700,
+    "conditions": {
+      "requiredCharacter": "taeo",
+      "characterFlagsMin": {"redemption": 2}
+    },
+    "text": "강태오는 명령 대신 사람들 앞에 섰다.\n\n그가 지킨 것은 질서가 아니라, 다시 실수할 권리였다."
+  },
+  {
+    "id": "TAEO_ORDER",
+    "title": "강태오 END. 독재 질서",
+    "priority": 690,
+    "conditions": {
+      "requiredCharacter": "taeo",
+      "characterFlagsMin": {"authoritarian": 3}
+    },
+    "text": "강태오는 아크-7을 안정시켰다.\n\n사람들은 굶지 않았고 폭동도 사라졌다. 대신 모두가 낮은 목소리로만 말했다."
+  },
+  {
+    "id": "HARIN_ESCAPE",
+    "title": "이하린 END. 단독 탈출",
+    "priority": 700,
+    "conditions": {
+      "requiredCharacter": "harin",
+      "characterFlagsMin": {"selfishEscape": 2}
+    },
+    "text": "이하린은 가장 좁은 통로로 빠져나갔다.\n\n문 밖에는 바람이 있었다. 뒤에 남겨진 사람들의 목소리는 들리지 않았다."
+  },
+  {
+    "id": "HARIN_TOGETHER",
+    "title": "이하린 END. 공동 탈출",
+    "priority": 705,
+    "conditions": {
+      "requiredCharacter": "harin",
+      "min": {"human": 2},
+      "characterFlagsMin": {"hiddenRoute": 3}
+    },
+    "text": "이하린은 혼자 지나갈 수 있는 길을 여러 사람이 지나갈 수 있게 넓혔다.\n\n느리고 위험했지만, 이번에는 아무도 두고 가지 않았다."
+  },
+  {
+    "id": "TRUE_END",
+    "title": "TRUE END. 잔광",
+    "priority": 100,
+    "conditions": {
+      "min": {"human": 60, "link": 60, "sanity": 25, "sister_trace": 6},
+      "has_flags": ["LIMITED_NETWORK_CREATED", "THIRD_ANSWER", "BROADCAST_HUMAN_SIGNAL", "LAST_MESSAGE_SEEN"]
+    },
+    "text": "당신은 MOTHER를 죽이지 않았다.\n하지만 그대로 두지도 않았다.\n\n서울은 다시 연결되었다. 아주 느리게. 아주 조심스럽게.\n사람이 사람에게 닿을 수 있을 만큼만.\n\n그리고 어느 날, 죽은 줄 알았던 누나의 마지막 메시지가 도착한다.\n\n'잘했어. 이번엔 네가 선택했구나.'"
+  },
+  {
+    "id": "END_E_RECONNECT",
+    "title": "END E. 재접속",
+    "priority": 90,
+    "conditions": {
+      "has_flags": ["MOTHER_DESTROYED", "LAST_MESSAGE_SEEN"]
+    },
+    "text": "인터넷은 돌아왔다.\n\n사람들은 서로를 찾았고, 도시는 다시 말을 걸었다.\n그러나 동시에 오래된 증오와 명령과 무기들도 깨어났다.\n\n연결은 축복이었고, 다시 저주가 되었다."
+  },
+  {
+    "id": "END_D_MANAGER",
+    "title": "END D. 관리자",
+    "priority": 85,
+    "conditions": {
+      "has_flags": ["MOTHER_MAINTAINED", "LAST_MESSAGE_SEEN"]
+    },
+    "text": "당신은 인간으로 남는 대신 도시의 일부가 되었다.\n\n서울은 안정되었다. 굶주림도 줄었다. 폭동도 사라졌다.\n그리고 누구도 자신이 무엇을 잃었는지 정확히 알지 못했다."
+  },
+  {
+    "id": "END_A_SURVIVOR",
+    "title": "END A. 생존자",
+    "priority": 10,
+    "conditions": {
+      "has_flags": ["LAST_MESSAGE_SEEN"]
+    },
+    "text": "당신은 진실의 일부만 손에 넣은 채 살아남았다.\n\n완벽한 답은 없었다. 그래도 내일 아침 불침번은 누군가와 교대할 수 있다."
+  },
+  {
+    "id": "END_COLLAPSED_ROUTE",
+    "title": "END. 끊긴 하루",
+    "priority": 20,
+    "conditions": {
+      "has_flags": ["ROUTE_COLLAPSED"]
+    },
+    "text": "더 이상 열리는 문은 없었다.\n\n단말기는 오래된 신호만 반복했고, 당신은 중앙망으로 가는 길을 잃었다.\n\n그래도 죽지는 않았다. 지하의 낮은 불빛 아래에서, 당신은 내일 먹을 것을 먼저 찾기로 했다."
+  },
+  {
+    "id": "DEATH_HP",
+    "title": "DEATH. 끊긴 신호",
+    "priority": 1000,
+    "conditions": {},
+    "text": "당신의 몸은 더 버티지 못했다.\n\n단말기는 한동안 심박을 기다리다가, 마침내 화면을 껐다."
+  },
+  {
+    "id": "DEATH_SANITY",
+    "title": "DEATH. 성광의 아이",
+    "priority": 1000,
+    "conditions": {},
+    "text": "당신은 하늘에서 떨어진 것들을 신이라 부르게 되었다.\n\n사람들은 당신이 미쳤다고 했다. 하지만 비가 내릴 때마다 죽은 도시가 기도한다는 것을 당신은 안다."
+  }
+]

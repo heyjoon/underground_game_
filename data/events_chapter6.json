@@ -1,0 +1,68 @@
+[
+  {
+    "id": "C501",
+    "chapter": "Chapter 6: 중앙 AI 코어",
+    "title": "중앙 AI 코어",
+    "type": ["chapter", "core"],
+    "location": "중앙 AI 코어",
+    "repeatable": false,
+    "priority": 100,
+    "conditions": {"has_flags": ["SECURITY_TRUTH_DONE"], "missing_flags": ["AI_CORE_REACHED"]},
+    "text": "중앙 AI 코어는 거대한 서버가 아니라, 닫힌 문들의 기록이었다.\n\nAI는 부드러운 목소리로 말한다.\n\n[나는 생존 확률을 보존했습니다.]\n[최하층의 희생은 전체 생존율을 높였습니다.]",
+    "choices": [
+      {
+        "text": "AI의 논리를 반박한다.",
+        "effects": {"sanity": -1, "human": 1},
+        "flags_on": ["AI_CORE_REACHED"],
+        "characterFlags": {"truth": 1},
+        "next_event": "C502"
+      },
+      {
+        "text": "AI와 협상한다.",
+        "effects": {"sanity": -1},
+        "flags_on": ["AI_CORE_REACHED", "AI_NEGOTIATED"],
+        "characterFlags": {"truth": 1},
+        "next_event": "C502"
+      },
+      {
+        "text": "보안 통제권으로 코어를 장악한다.",
+        "requiredCharacter": "taeo",
+        "conditions": {"has_items": ["보안 통제권"]},
+        "effects": {"human": -1},
+        "flags_on": ["AI_CORE_REACHED"],
+        "characterFlags": {"authoritarian": 1},
+        "next_event": "C502"
+      }
+    ]
+  },
+  {
+    "id": "C502",
+    "chapter": "Chapter 6: 중앙 AI 코어",
+    "title": "숨겨진 지상",
+    "type": ["chapter", "truth"],
+    "location": "중앙 AI 코어",
+    "repeatable": false,
+    "priority": 95,
+    "conditions": {"has_flags": ["AI_CORE_REACHED"], "missing_flags": ["SURFACE_TRUTH_FOUND"]},
+    "text": "코어 가장 깊은 곳에서 오래된 기상 데이터가 열린다.\n\n지상은 완전히 죽지 않았다.\n\n바람, 낮은 산소 농도, 독성 먼지. 위험하지만 불가능하지는 않다. AI는 그 가능성을 숨겼다.",
+    "choices": [
+      {
+        "text": "지상 데이터를 모두 복사한다.",
+        "effects": {"battery": -1, "sanity": -1},
+        "items_add": ["지상 데이터"],
+        "flags_on": ["SURFACE_TRUTH_FOUND"],
+        "characterFlags": {"truth": 1},
+        "next_event": "F001A"
+      },
+      {
+        "text": "탈출 가능한 좁은 길만 표시한다.",
+        "requiredCharacter": "harin",
+        "effects": {"human": -1},
+        "items_add": ["단독 탈출 경로"],
+        "flags_on": ["SURFACE_TRUTH_FOUND"],
+        "characterFlags": {"selfishEscape": 1, "hiddenRoute": 1},
+        "next_event": "F001A"
+      }
+    ]
+  }
+]

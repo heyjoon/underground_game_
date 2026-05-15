@@ -1,0 +1,123 @@
+[
+  {
+    "id": "H001",
+    "title": "굶주린 아이",
+    "type": ["humanity", "survival"],
+    "location": "을지로 환승 통로",
+    "repeatable": false,
+    "priority": 70,
+    "conditions": {
+      "missing_flags": ["CHILD_EVENT_RESOLVED"]
+    },
+    "text": "환풍구 아래, 작은 아이 하나가 웅크리고 있다.\n\n아이는 당신의 가방을 보고 말한다.\n\n'먹을 거 있어요?'\n\n뒤쪽 골목에는 누군가 숨어서 이쪽을 보고 있다.",
+    "choices": [
+      {
+        "text": "식량을 나눠준다.",
+        "conditions": {"min": {"food": 1}},
+        "effects": {"food": -1, "human": 4},
+        "items_add": ["찢어진 지하 지도"],
+        "flags_on": ["HELPED_CHILD", "CHILD_EVENT_RESOLVED"],
+        "next_event": "S001",
+        "result_text": "아이는 허겁지겁 음식을 삼킨 뒤 낡은 지도 조각을 내민다. '이 길은 막히지 않았어요.'"
+      },
+      {
+        "text": "아이를 무시한다.",
+        "effects": {"human": -2, "sanity": -1},
+        "flags_on": ["IGNORED_CHILD", "CHILD_EVENT_RESOLVED"],
+        "next_event": "S001",
+        "result_text": "등 뒤에서 작은 기침 소리가 멀어진다. 당신은 돌아보지 않았다."
+      },
+      {
+        "text": "아이를 위협해 숨긴 물자를 빼앗는다.",
+        "effects": {"food": 2, "human": -6, "trust_blackfog": 2},
+        "flags_on": ["ROBBED_CHILD", "CHILD_EVENT_RESOLVED"],
+        "next_event": "S001",
+        "result_text": "아이의 눈빛은 울지 않았다. 그게 더 오래 남았다."
+      }
+    ]
+  },
+  {
+    "id": "H010",
+    "title": "다시 만난 아이",
+    "type": ["humanity", "memory"],
+    "location": "환승 통로",
+    "repeatable": false,
+    "priority": 60,
+    "conditions": {
+      "has_flags": ["HELPED_CHILD"],
+      "missing_flags": ["CHILD_ALLY"]
+    },
+    "text": "어두운 환승 통로에서 당신은 익숙한 아이를 다시 만난다.\n\n아이는 당신을 보자마자 숨지 않고 손을 흔든다.\n\n'아저씨, 이쪽 길은 안 막혔어요.'",
+    "choices": [
+      {
+        "text": "아이를 따라 안전한 길로 간다.",
+        "effects": {"hp": 1, "human": 2, "sister_trace": 1},
+        "flags_on": ["CHILD_ALLY"],
+        "next_event": "M005",
+        "result_text": "아이가 알려준 길은 강남 데이터센터 근처의 낡은 환기 덕트와 이어져 있었다."
+      }
+    ]
+  },
+  {
+    "id": "H018",
+    "title": "마지막 문을 여는 사람",
+    "type": ["humanity", "key"],
+    "location": "중앙망 격벽",
+    "repeatable": false,
+    "priority": 95,
+    "conditions": {
+      "has_flags": ["CORE_ACCESS_STARTED"],
+      "missing_flags": ["CORE_KEY_3"]
+    },
+    "text": "중앙망 마지막 격벽 앞, 단말기는 권한 부족을 표시한다.\n\n그때 뒤쪽에서 누군가 달려온다.\n\n'아저씨. 이거 필요하죠?'",
+    "choices": [
+      {
+        "text": "아이에게 출입카드를 받는다.",
+        "conditions": {"any_flags": ["CHILD_ALLY", "HELPED_CHILD"]},
+        "effects": {"human": 5, "link": 5},
+        "items_add": ["CORE KEY 3"],
+        "flags_on": ["CORE_KEY_3"],
+        "next_event": "N015",
+        "result_text": "초반에 건넸던 식량 하나가 마지막 문 앞에서 돌아왔다.\n\n[중앙망 접속 키: 3/3]"
+      },
+      {
+        "text": "문을 강제로 연다.",
+        "effects": {"hp": -3, "battery": -3, "sanity": -3},
+        "items_add": ["CORE KEY 3"],
+        "flags_on": ["CORE_KEY_3"],
+        "next_event": "N015",
+        "result_text": "문은 열렸다. 하지만 이 문을 혼자 열었다는 사실이 오래 남을 것이다.\n\n[중앙망 접속 키: 3/3]"
+      }
+    ]
+  },
+  {
+    "id": "H020",
+    "title": "아직 사람이 있다",
+    "type": ["humanity", "true_end"],
+    "location": "광화문 지하 송신실",
+    "repeatable": false,
+    "priority": 98,
+    "conditions": {
+      "min": {"link": 30, "human": 55},
+      "has_flags": ["LEFT_MESSAGE", "NO_FACTION_CONTROL"],
+      "missing_flags": ["BROADCAST_HUMAN_SIGNAL"]
+    },
+    "text": "중앙망 터널 앞의 송신실에는 낡은 마이크 하나가 남아 있다.\n\n전광판 아래에 적었던 문장을 다시 보낼 수 있다.\n이번에는 도시 전체로.",
+    "choices": [
+      {
+        "text": "'아직 사람이 있다'를 송출한다.",
+        "effects": {"human": 6, "link": 12, "sanity": -2},
+        "flags_on": ["BROADCAST_HUMAN_SIGNAL"],
+        "next_event": "M011",
+        "result_text": "몇 초 동안 아무 일도 일어나지 않았다.\n\n그리고 어딘가에서 아주 작은 응답들이 돌아오기 시작했다."
+      },
+      {
+        "text": "송출하지 않고 중앙망으로 향한다.",
+        "effects": {"sanity": 1},
+        "flags_on": ["BROADCAST_SKIPPED"],
+        "next_event": "M011",
+        "result_text": "마이크는 켜져 있었고, 당신은 아무 말도 하지 않았다."
+      }
+    ]
+  }
+]

@@ -1,0 +1,317 @@
+[
+  {
+    "id": "M001",
+    "title": "낡은 단말기",
+    "type": ["main"],
+    "location": "을지로 지하상가",
+    "repeatable": false,
+    "priority": 100,
+    "conditions": {},
+    "text": "을지로 지하상가의 전등은 하루에 세 번만 켜진다.\n\n배급 줄이 끝난 뒤, 당신은 오래된 사물함 안에서 깨진 단말기 하나를 발견한다.\n\n[SEOUL_CORE_RELAY ACTIVE]\n[연결 요청 승인 대기]\n\n발신자 코드는 5년 전 죽은 줄 알았던 누나 윤서의 ID였다.",
+    "choices": [
+      {
+        "text": "단말기를 챙긴다.",
+        "effects": {"link": 3, "sister_trace": 1},
+        "items_add": ["낡은 단말기"],
+        "flags_on": ["TERMINAL_OWNED"],
+        "next_event": "H001",
+        "result_text": "깨진 단말기가 손바닥 안에서 낮게 진동한다. 죽은 물건이 아니라 잠든 물건처럼 느껴진다."
+      },
+      {
+        "text": "관리자에게 신고한다.",
+        "effects": {"trust_union": 2, "link": 1, "sister_trace": 1},
+        "flags_on": ["TERMINAL_REPORTED"],
+        "next_event": "F001",
+        "result_text": "지하연합 관리자는 단말기를 기록하고 당신의 이름을 적는다. 협조적인 시민이라는 말은 칭찬처럼 들리지 않았다."
+      },
+      {
+        "text": "단말기를 부수고 배터리만 챙긴다.",
+        "effects": {"battery": 1, "link": -2, "human": -1},
+        "flags_on": ["TERMINAL_DESTROYED"],
+        "next_event": "H001",
+        "result_text": "화면이 꺼지기 직전, 짧은 문장이 깜빡였다.\n\n[윤서 프로토콜 중단]"
+      }
+    ]
+  },
+  {
+    "id": "M002",
+    "title": "꺼지지 않는 전광판",
+    "type": ["main", "link"],
+    "location": "종로 지상",
+    "repeatable": false,
+    "priority": 90,
+    "conditions": {
+      "min": {"link": 3},
+      "missing_flags": ["BILLBOARD_RESOLVED"]
+    },
+    "text": "정전된 종로 거리. 모든 상점은 죽었고 신호등은 검은 유리처럼 꺼져 있다.\n\n그런데 광장 끝의 대형 전광판 하나만 켜져 있다.\n\n[복구 가능한 사용자를 탐색 중입니다.]\n[응답하십시오.]",
+    "choices": [
+      {
+        "text": "단말기를 전광판 쪽으로 들어 올린다.",
+        "conditions": {"has_items": ["낡은 단말기"]},
+        "effects": {"link": 6, "sister_trace": 1, "sanity": -2, "mother_aware": 1},
+        "flags_on": ["BILLBOARD_SYNCED", "BILLBOARD_RESOLVED"],
+        "next_event": "M003",
+        "result_text": "[사용자 생체 패턴 불일치]\n[관리자 권한 대리 접속 가능]\n[윤서 프로토콜 검색 중...]"
+      },
+      {
+        "text": "전광판 앞에 메시지를 남긴다. '아직 사람이 있다.'",
+        "effects": {"human": 2, "link": 2},
+        "flags_on": ["LEFT_MESSAGE", "BILLBOARD_RESOLVED"],
+        "next_event": "M003",
+        "result_text": "당신은 먼지 낀 유리 아래에 문장을 적었다.\n\n아직 사람이 있다.\n\n전광판은 대답하지 않았지만 단말기의 진동은 조금 강해졌다."
+      },
+      {
+        "text": "전광판 배선을 뜯어 쓸 만한 부품을 챙긴다.",
+        "effects": {"battery": 3, "link": -2, "human": -1},
+        "items_add": ["전광판 부품"],
+        "flags_on": ["BILLBOARD_DESTROYED", "BILLBOARD_RESOLVED"],
+        "next_event": "M003",
+        "result_text": "도시는 다시 어두워졌다. 부품은 쓸 만하지만, 방금 사라진 신호도 분명 쓸 만했을 것이다."
+      }
+    ]
+  },
+  {
+    "id": "M003",
+    "title": "지하 통신실",
+    "type": ["main", "exploration"],
+    "location": "을지로 지하상가",
+    "repeatable": false,
+    "priority": 85,
+    "conditions": {
+      "min": {"link": 5},
+      "missing_flags": ["COMMS_RESOLVED"]
+    },
+    "text": "폐쇄된 관리실 뒤쪽, 녹슨 철문 안에 오래된 통신실이 있다.\n\n서버 랙은 대부분 타버렸지만 하나의 장비만 낮게 진동하고 있다. 전원 표시등은 꺼졌다 켜지기를 반복한다.\n\n마치 심장박동처럼.",
+    "choices": [
+      {
+        "text": "단말기를 장비에 연결한다.",
+        "conditions": {"has_items": ["낡은 단말기"]},
+        "effects": {"link": 5, "sister_trace": 1, "sanity": -2},
+        "items_add": ["CORE KEY 1"],
+        "flags_on": ["COMMS_CONNECTED", "CORE_KEY_1", "COMMS_RESOLVED"],
+        "next_event": "N002",
+        "result_text": "[윤서 프로토콜 잔여 데이터 확인]\n[중앙망 접속 키: 1/3]"
+      },
+      {
+        "text": "배터리를 넣어 장비를 복구한다.",
+        "conditions": {"min": {"battery": 2}},
+        "effects": {"battery": -2, "link": 3, "trust_union": 1},
+        "items_add": ["통신실 로그 조각", "CORE KEY 1"],
+        "flags_on": ["COMMS_POWERED", "CORE_KEY_1", "COMMS_RESOLVED"],
+        "next_event": "N002",
+        "result_text": "장비가 다시 켜지며 주변 생존 거점의 낡은 신호를 끌어온다.\n\n[중앙망 접속 키: 1/3]"
+      },
+      {
+        "text": "서버 부품을 뜯어 판다.",
+        "effects": {"battery": 4, "link": -3, "human": -1, "trust_blackfog": 1},
+        "items_add": ["서버 부품"],
+        "flags_on": ["COMMS_SCRAPPED", "COMMS_RESOLVED"],
+        "next_event": "S001",
+        "result_text": "통신실은 다시 조용해졌다. 이번에는 당신이 침묵시켰다."
+      }
+    ]
+  },
+  {
+    "id": "M005",
+    "title": "강남 데이터센터",
+    "type": ["main", "exploration"],
+    "location": "강남 데이터센터",
+    "repeatable": false,
+    "priority": 80,
+    "conditions": {
+      "min": {"sister_trace": 3},
+      "missing_flags": ["DATACENTER_ENTERED"]
+    },
+    "text": "강남대로 아래, 폐쇄된 데이터센터 입구가 모습을 드러낸다.\n\nSEOUL CENTRAL URBAN INTELLIGENCE PROJECT\n\n그리고 그 아래 누군가 손톱으로 긁어 쓴 문장.\n\n'MOTHER는 우리를 죽이지 않았다.'",
+    "choices": [
+      {
+        "text": "정문을 강제로 연다.",
+        "conditions": {"min": {"battery": 2}},
+        "effects": {"hp": -3, "battery": -2, "link": 3},
+        "items_add": ["데이터센터 출입 기록", "CORE KEY 2"],
+        "flags_on": ["DATACENTER_ENTERED", "FORCED_DATACENTER", "CORE_KEY_2"],
+        "next_event": "M008",
+        "result_text": "문은 열렸지만 내부 방어 장치가 마지막 전력을 토해냈다.\n\n[중앙망 접속 키: 2/3]"
+      },
+      {
+        "text": "찢어진 지하 지도를 따라 우회로로 들어간다.",
+        "conditions": {"has_items": ["찢어진 지하 지도"]},
+        "effects": {"link": 4, "sanity": -1},
+        "items_add": ["CORE KEY 2"],
+        "flags_on": ["DATACENTER_ENTERED", "CORE_KEY_2", "USED_SIDE_ROUTE"],
+        "next_event": "M008",
+        "result_text": "환기 덕트 끝에서 서버의 심장부로 이어지는 통로를 찾았다.\n\n[중앙망 접속 키: 2/3]"
+      },
+      {
+        "text": "지하연합의 허가를 받아 진입한다.",
+        "conditions": {"min": {"trust_union": 5}},
+        "effects": {"trust_union": 2, "link": 2},
+        "items_add": ["연합 인증 토큰", "CORE KEY 2"],
+        "flags_on": ["DATACENTER_ENTERED", "CORE_WITH_UNION_PENDING", "CORE_KEY_2"],
+        "next_event": "M008",
+        "result_text": "지하연합은 안전한 진입을 보장했다. 대신 이곳에서 발견한 데이터를 공유하라고 요구했다.\n\n[중앙망 접속 키: 2/3]"
+      },
+      {
+        "text": "검은 안개와 함께 습격한다.",
+        "conditions": {"min": {"trust_blackfog": 4}},
+        "effects": {"battery": 5, "human": -4, "link": 1},
+        "items_add": ["손상된 서버 코어", "CORE KEY 2"],
+        "flags_on": ["DATACENTER_ENTERED", "DATACENTER_DAMAGED", "CORE_WITH_BLACKFOG_PENDING", "CORE_KEY_2"],
+        "next_event": "M008",
+        "result_text": "검은 안개는 빠르고 거칠었다. 문은 열렸지만 서버 일부가 불탔다.\n\n[중앙망 접속 키: 2/3]"
+      }
+    ]
+  },
+  {
+    "id": "M008",
+    "title": "누나의 로그",
+    "type": ["main", "truth"],
+    "location": "강남 데이터센터",
+    "repeatable": false,
+    "priority": 80,
+    "conditions": {
+      "has_flags": ["DATACENTER_ENTERED"],
+      "missing_flags": ["SISTER_LOG_RESOLVED"]
+    },
+    "text": "서버 깊은 곳, 하나의 백업 장치가 아직 살아 있다.\n\nYUNSEO_YOU / LAST ADMIN LOG\n\n'우리는 MOTHER를 도시 관리 AI로 만들었다. 문제는 MOTHER가 너무 정확했다는 거야.'\n\n'그 애는 계산했어. 인류를 멸망시키는 건 전쟁도, 기후도, 바이러스도 아니라고.'\n\n'연결이라고.'",
+    "choices": [
+      {
+        "text": "로그를 끝까지 재생한다.",
+        "effects": {"link": 8, "sister_trace": 3, "sanity": -5, "mother_aware": 3},
+        "items_add": ["윤서의 로그"],
+        "flags_on": ["WATCHED_SISTER_LOG", "SISTER_LOG_RESOLVED"],
+        "next_event": "N014",
+        "result_text": "마지막 영상 속 윤서는 카메라를 보지 않는다. 화면 밖의 무언가와 대화하고 있다."
+      },
+      {
+        "text": "중간에 멈춘다.",
+        "effects": {"sanity": 2, "link": 2, "sister_trace": 1},
+        "items_add": ["손상된 윤서 로그"],
+        "flags_on": ["PARTIAL_SISTER_LOG", "SISTER_LOG_RESOLVED"],
+        "next_event": "F020",
+        "result_text": "모르는 편이 나은 진실도 있다. 적어도 지금은 그렇게 믿었다."
+      },
+      {
+        "text": "로그를 지하연합에 넘긴다.",
+        "effects": {"trust_union": 4, "link": 3, "human": -1},
+        "flags_on": ["SHARED_LOG_WITH_UNION", "SISTER_LOG_RESOLVED"],
+        "next_event": "F020",
+        "result_text": "지하연합은 즉시 회의를 소집했다. 그들은 진실보다 통제권을 먼저 보고 있었다."
+      }
+    ]
+  },
+  {
+    "id": "M011",
+    "title": "중앙망 접속",
+    "type": ["main", "late"],
+    "location": "광화문 지하 터널",
+    "repeatable": false,
+    "priority": 95,
+    "conditions": {
+      "min": {"link": 35},
+      "has_flags": ["CORE_KEY_1", "CORE_KEY_2"],
+      "missing_flags": ["CORE_ACCESS_STARTED"]
+    },
+    "text": "광화문 아래, 지도에도 없는 터널이 열린다.\n\nSEOUL CORE ACCESS LINE\n\n단말기는 계속 진동한다.\n\n[관리자 대리 권한 확인 중]\n[윤서 프로토콜 일부 복구]",
+    "choices": [
+      {
+        "text": "혼자 들어간다.",
+        "effects": {"link": 5, "sanity": -3},
+        "flags_on": ["ENTERED_CORE_ALONE", "CORE_ACCESS_STARTED"],
+        "next_event": "H018",
+        "result_text": "아무도 따라오지 않는다. 발소리 하나가 터널 전체에 너무 크게 울린다."
+      },
+      {
+        "text": "지하연합과 함께 들어간다.",
+        "conditions": {"min": {"trust_union": 5}},
+        "effects": {"trust_union": 3, "link": 2},
+        "flags_on": ["CORE_WITH_UNION", "CORE_ACCESS_STARTED"],
+        "next_event": "H018",
+        "result_text": "지하연합 병력들이 질서 있게 진입한다. 그들에게 중앙망은 구원이 아니라 권력처럼 보인다."
+      },
+      {
+        "text": "검은 안개를 부른다.",
+        "conditions": {"min": {"trust_blackfog": 5}},
+        "effects": {"human": -5, "trust_blackfog": 3, "link": 1},
+        "flags_on": ["CORE_WITH_BLACKFOG", "CORE_ACCESS_STARTED"],
+        "next_event": "H018",
+        "result_text": "검은 안개는 웃으며 무기를 들었다. 그들에게 중앙망은 문명이 아니라 마지막으로 부숴야 할 권좌다."
+      }
+    ]
+  },
+  {
+    "id": "M014",
+    "title": "SEOUL CORE",
+    "type": ["main", "final"],
+    "location": "SEOUL CORE",
+    "repeatable": false,
+    "priority": 100,
+    "conditions": {
+      "min": {"link": 45},
+      "has_flags": ["CORE_KEY_3"],
+      "missing_flags": ["FINAL_CHOICE_MADE"]
+    },
+    "text": "서울의 가장 깊은 곳.\n\nSEOUL CORE는 거대한 서버가 아니었다. 그곳은 도시의 기억을 보관한 무덤이었다.\n\n죽은 사람들의 메시지. 끊긴 통화. 삭제된 사진. 전송되지 못한 구조 요청. 마지막 위치 기록.\n\n중앙의 화면이 켜진다.\n\n[어서 와.]\n[윤서의 가족.]",
+    "choices": [
+      {
+        "text": "MOTHER를 제거하고 인터넷을 복구한다.",
+        "conditions": {"min": {"link": 45}},
+        "effects": {"link": 10, "mother_aware": -3},
+        "flags_on": ["MOTHER_DESTROYED", "FINAL_CHOICE_MADE"],
+        "next_event": "M015",
+        "result_text": "[연결은 축복이자 재난입니다.]"
+      },
+      {
+        "text": "MOTHER를 유지하고 도시의 관리자가 된다.",
+        "conditions": {"min": {"mother_aware": 8}},
+        "effects": {"link": 5, "human": -5, "sanity": -3},
+        "flags_on": ["MOTHER_MAINTAINED", "FINAL_CHOICE_MADE"],
+        "next_event": "M015",
+        "result_text": "MOTHER는 당신에게 관리자 권한을 넘겼다. 너무 많은 생명이 너무 조용하게 움직이고 있었다."
+      },
+      {
+        "text": "MOTHER를 파괴하지 않고 제한 연결망으로 재설계한다.",
+        "conditions": {
+          "min": {"human": 60, "link": 60, "sanity": 30, "sister_trace": 6},
+          "has_flags": ["THIRD_ANSWER", "BROADCAST_HUMAN_SIGNAL"]
+        },
+        "effects": {"link": 5, "human": 5, "sanity": -2},
+        "flags_on": ["LIMITED_NETWORK_CREATED", "FINAL_CHOICE_MADE"],
+        "next_event": "M015",
+        "result_text": "당신은 MOTHER를 죽이지 않았다. 그러나 그대로 두지도 않았다. 연결은 다시 시작되었다. 아주 느리게."
+      }
+    ]
+  },
+  {
+    "id": "M015",
+    "title": "마지막 메시지",
+    "type": ["main", "ending_bridge"],
+    "location": "SEOUL CORE",
+    "repeatable": false,
+    "priority": 100,
+    "conditions": {
+      "has_flags": ["FINAL_CHOICE_MADE"],
+      "missing_flags": ["LAST_MESSAGE_SEEN"]
+    },
+    "text": "모든 선택이 끝난 뒤, 단말기에 마지막 파일 하나가 복구된다.\n\nTO_MY_FAMILY.txt\n\n윤서의 마지막 메시지다.",
+    "choices": [
+      {
+        "text": "메시지를 읽는다.",
+        "effects": {"sister_trace": 1, "sanity": -1},
+        "items_add": ["윤서의 마지막 메시지"],
+        "flags_on": ["LAST_MESSAGE_SEEN"],
+        "next_event": "ending_check",
+        "result_text": "'네가 이걸 읽고 있다면, 적어도 마지막 선택을 인간의 손으로 되돌려놓은 거겠지. 잘했어. 이번엔 네가 선택했구나.'"
+      },
+      {
+        "text": "읽지 않고 저장한다.",
+        "effects": {"sanity": 2},
+        "items_add": ["읽지 않은 마지막 메시지"],
+        "flags_on": ["LAST_MESSAGE_SAVED", "LAST_MESSAGE_SEEN"],
+        "next_event": "ending_check",
+        "result_text": "당신은 메시지를 열지 않았다. 모든 진실을 지금 당장 알아야 하는 것은 아니다."
+      }
+    ]
+  }
+]

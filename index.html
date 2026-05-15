@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>잔광 / DOWNLINK</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <aside class="sidebar" aria-label="상태">
+        <div class="brand">
+          <span class="kicker">TEXT SURVIVAL</span>
+          <h1>잔광<br /><span>DOWNLINK</span></h1>
+        </div>
+
+        <section class="panel">
+          <div class="panel-title">상태</div>
+          <div id="stats" class="stats"></div>
+        </section>
+
+        <section id="itemsPanel" class="panel">
+          <div class="panel-title">소지품</div>
+          <div id="items" class="chips"></div>
+        </section>
+      </aside>
+
+      <section class="stage" aria-live="polite">
+        <article class="event">
+          <h2 id="eventTitle"></h2>
+          <div id="eventText" class="event-text"></div>
+          <div id="choices" class="choices"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

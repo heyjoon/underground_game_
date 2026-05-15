@@ -1,0 +1,69 @@
+[
+  {
+    "id": "S001",
+    "title": "물 없는 배급소",
+    "type": ["survival"],
+    "location": "지하 배급소",
+    "repeatable": false,
+    "priority": 55,
+    "conditions": {
+      "missing_flags": ["RATION_EVENT_DONE"]
+    },
+    "text": "배급소 앞 줄은 평소보다 짧다. 좋은 징조가 아니다.\n\n관리자는 물이 부족하다고 말한다. 대신 오래된 배터리 몇 개를 식량과 교환하겠다고 한다.",
+    "choices": [
+      {
+        "text": "식량 하나를 배터리와 바꾼다.",
+        "conditions": {"min": {"food": 1}},
+        "effects": {"food": -1, "battery": 2},
+        "flags_on": ["RATION_EVENT_DONE"],
+        "next_event": "M002",
+        "result_text": "배터리는 차갑고 무겁다. 오늘 밤 배는 조금 더 비어 있을 것이다."
+      },
+      {
+        "text": "식량을 지킨다.",
+        "effects": {"sanity": 1},
+        "flags_on": ["RATION_EVENT_DONE"],
+        "next_event": "M002",
+        "result_text": "배터리보다 오늘의 한 끼가 더 중요할 때도 있다."
+      },
+      {
+        "text": "줄 뒤의 노인에게 식량을 나눠준다.",
+        "conditions": {"min": {"food": 1}},
+        "effects": {"food": -1, "human": 3, "trust_union": 1},
+        "flags_on": ["RATION_EVENT_DONE", "HELPED_ELDER"],
+        "next_event": "M002",
+        "result_text": "노인은 고개를 숙였다. 말보다 오래 남는 감사도 있다."
+      }
+    ]
+  },
+  {
+    "id": "S002",
+    "title": "꺼진 약국",
+    "type": ["survival", "exploration"],
+    "location": "종로 뒷골목",
+    "repeatable": false,
+    "priority": 35,
+    "conditions": {
+      "min": {"turn": 4},
+      "missing_flags": ["PHARMACY_SEARCHED"]
+    },
+    "text": "종로 뒷골목의 약국 간판은 반쯤 떨어져 있다.\n\n유리문 안쪽에는 먼지 쌓인 약품 선반과 뜯긴 계산대가 보인다.",
+    "choices": [
+      {
+        "text": "조심스럽게 약품을 찾는다.",
+        "effects": {"hp": 1, "sanity": -1},
+        "items_add": ["응급 약품"],
+        "flags_on": ["PHARMACY_SEARCHED"],
+        "next_event": "random",
+        "result_text": "쓸 만한 약품은 많지 않았다. 그래도 붕대와 소독약은 아직 살아 있었다."
+      },
+      {
+        "text": "들어가지 않는다.",
+        "effects": {"sanity": 1},
+        "flags_on": ["PHARMACY_SEARCHED"],
+        "next_event": "random",
+        "result_text": "깨진 유리 너머의 어둠이 마음에 걸렸다. 오늘은 지나치기로 했다."
+      }
+    ]
+  }
+]

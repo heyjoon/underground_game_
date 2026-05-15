@@ -1,0 +1,88 @@
+[
+  {
+    "id": "C101",
+    "chapter": "Chapter 2: 배급구역",
+    "title": "배급구역",
+    "type": ["chapter", "ration"],
+    "location": "배급구역",
+    "repeatable": false,
+    "priority": 180,
+    "conditions": {
+      "has_flags": ["LOWEST_ESCAPE_DONE"],
+      "missing_flags": ["RATION_ZONE_DONE"]
+    },
+    "text": "배급구역은 조용하지 않았다.\n\n사람들은 닫힌 식량 창구 앞에서 서로를 밀치고 있었다. 전광판에는 오늘 배급량이 0으로 표시되어 있다.\n\n누군가 외친다.\n\n'AI가 상층 창고를 잠갔어. 우리를 굶겨 죽일 셈이야.'",
+    "choices": [
+      {
+        "text": "줄 뒤쪽으로 물러나 상황을 본다.",
+        "effects": {"sanity": 1, "food": -1},
+        "flags_on": ["RATION_ZONE_DONE"],
+        "next_event": "C102"
+      },
+      {
+        "text": "균사 샘플로 대체 식량 가능성을 분석한다.",
+        "requiredCharacter": "seojin",
+        "conditions": {"has_items": ["균사 샘플"]},
+        "effects": {"food": 1, "sanity": 1},
+        "flags_on": ["RATION_ZONE_DONE"],
+        "characterFlags": {"ecologicalRestoration": 1, "truth": 1},
+        "next_event": "C102"
+      },
+      {
+        "text": "폭동을 강제로 진압한다.",
+        "requiredCharacter": "taeo",
+        "effects": {"hp": 1, "human": -1},
+        "flags_on": ["RATION_ZONE_DONE", "RIOT_SUPPRESSED"],
+        "characterFlags": {"authoritarian": 1},
+        "next_event": "C102"
+      },
+      {
+        "text": "배달꾼 통로로 창고 뒤편을 확인한다.",
+        "requiredCharacter": "harin",
+        "effects": {"food": 1, "battery": -1},
+        "items_add": ["창고 우회 동선"],
+        "flags_on": ["RATION_ZONE_DONE"],
+        "characterFlags": {"hiddenRoute": 1},
+        "next_event": "C102"
+      }
+    ]
+  },
+  {
+    "id": "C102",
+    "chapter": "Chapter 2: 배급구역",
+    "title": "잠긴 창고",
+    "type": ["chapter", "truth"],
+    "location": "배급구역 창고",
+    "repeatable": false,
+    "priority": 170,
+    "conditions": {
+      "has_flags": ["RATION_ZONE_DONE"],
+      "missing_flags": ["WAREHOUSE_TRUTH_DONE"]
+    },
+    "text": "창고의 잠금 로그에는 이상한 문장이 남아 있다.\n\n[자원 보존 프로토콜 실행]\n[최하층 생존 확률: 낮음]\n[정보 공개: 제한]\n\n이건 단순 사고가 아니다.",
+    "choices": [
+      {
+        "text": "로그를 복사한다.",
+        "effects": {"battery": -1, "sanity": -1},
+        "items_add": ["자원 보존 로그"],
+        "flags_on": ["WAREHOUSE_TRUTH_DONE"],
+        "characterFlags": {"truth": 1},
+        "next_event": "C201"
+      },
+      {
+        "text": "사람들에게 일부만 말한다.",
+        "effects": {"human": -1, "sanity": 1},
+        "flags_on": ["WAREHOUSE_TRUTH_DONE"],
+        "next_event": "C201"
+      },
+      {
+        "text": "질서를 위해 로그를 숨긴다.",
+        "requiredCharacter": "taeo",
+        "effects": {"human": -1, "sanity": 1},
+        "flags_on": ["WAREHOUSE_TRUTH_DONE"],
+        "characterFlags": {"authoritarian": 1},
+        "next_event": "C201"
+      }
+    ]
+  }
+]

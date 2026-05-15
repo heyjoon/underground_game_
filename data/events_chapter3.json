@@ -1,0 +1,66 @@
+[
+  {
+    "id": "C201",
+    "chapter": "Chapter 3: 정전구역",
+    "title": "정전구역",
+    "type": ["chapter", "closed", "damage"],
+    "location": "정전구역",
+    "repeatable": false,
+    "priority": 160,
+    "conditions": {"has_flags": ["WAREHOUSE_TRUTH_DONE"], "missing_flags": ["BLACKOUT_ZONE_DONE"]},
+    "text": "정전구역은 지도에서 검게 칠해져 있다.\n\n문을 여는 순간, 모든 조명이 꺼진다. 바닥에는 오래된 전력 케이블이 물웅덩이 속에 잠겨 있다.",
+    "choices": [
+      {
+        "text": "전력 케이블을 밟지 않게 천천히 건넌다.",
+        "effects": {"sanity": -1, "battery": -1},
+        "flags_on": ["BLACKOUT_ZONE_DONE"],
+        "next_event": "C202"
+      },
+      {
+        "text": "보안대식 신호 규칙으로 사람들을 통제한다.",
+        "requiredCharacter": "taeo",
+        "tags": ["control"],
+        "effects": {"battery": -1, "human": -1},
+        "characterFlags": {"authoritarian": 1},
+        "flags_on": ["BLACKOUT_ZONE_DONE"],
+        "next_event": "C202"
+      },
+      {
+        "text": "배달꾼 표식을 따라 어둠 속 우회로를 탄다.",
+        "requiredCharacter": "harin",
+        "tags": ["route", "escape"],
+        "effects": {"battery": 1},
+        "characterFlags": {"hiddenRoute": 1},
+        "flags_on": ["BLACKOUT_ZONE_DONE"],
+        "next_event": "C202"
+      }
+    ]
+  },
+  {
+    "id": "C202",
+    "chapter": "Chapter 3: 정전구역",
+    "title": "정전 속의 방송",
+    "type": ["chapter", "truth"],
+    "location": "정전구역 방송실",
+    "repeatable": false,
+    "priority": 150,
+    "conditions": {"has_flags": ["BLACKOUT_ZONE_DONE"], "missing_flags": ["BLACKOUT_TRUTH_DONE"]},
+    "text": "꺼진 방송실 안에서 보조 전원이 켜진다.\n\n[지상 복귀 안내 파일: 비공개]\n[폐쇄 사유: 생존 확률 부족]\n\nAI는 지상이 죽었다고 말한 적이 없다. 단지 말하지 않았을 뿐이다.",
+    "choices": [
+      {
+        "text": "안내 파일을 복사한다.",
+        "effects": {"battery": -1, "sanity": -1},
+        "items_add": ["지상 복귀 안내 파일"],
+        "flags_on": ["BLACKOUT_TRUTH_DONE"],
+        "characterFlags": {"truth": 1},
+        "next_event": "C301"
+      },
+      {
+        "text": "지금은 파일을 덮어둔다.",
+        "effects": {"sanity": 1},
+        "flags_on": ["BLACKOUT_TRUTH_DONE"],
+        "next_event": "C301"
+      }
+    ]
+  }
+]
