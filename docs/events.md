@@ -96,6 +96,7 @@ Events live in `data/random_events.json`.
   "rarity": "COMMON",
   "minDay": 1,
   "maxDay": 0,
+  "requiredCharacter": null,
   "requiredFlags": [],
   "blockedFlags": [],
   "counterMin": {},
@@ -133,8 +134,8 @@ Events live in `data/random_events.json`.
 - WORLD: 12
 - RAIDER: 7
 - DISEASE: 5
-- ANOMALY: 5
-- STORY: 7
+- ANOMALY: 6
+- STORY: 14
 - CRITICAL: 8
 
-Total: 56 events.
+Total: 64 events.

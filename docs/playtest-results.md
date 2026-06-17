@@ -244,3 +244,49 @@ Compared to the previous random 1000-run check:
 - Bad endings dropped from 527 to 321.
 - Character true endings rose from 354 to 478.
 - Average ending day moved from 26.45 to 30.43.
+
+## Story Hook Expansion Check
+
+After adding character-specific mystery hooks and delaying `C_T01 세계의 진실` until mid-game:
+
+### Truth-Seeking Player
+
+- Total: 100
+- Average ending day: 37.94
+- True route locked: 91
+- Character true endings: 82
+- Bad endings: 11
+- Within 30 days: 9
+
+Ending spread:
+
+- `TRUE_HARIN_ROAD`: 30
+- `TRUE_SEOJIN_GREEN`: 30
+- `TRUE_TAEO_RELEASE`: 22
+- `BAD_DECOMPRESSION`: 9
+- `END_A_SURVIVOR`: 7
+- `BAD_MADNESS`: 2
+
+### Survival Player
+
+- Total: 100
+- Average ending day: 35.60
+- True route locked: 76
+- Character true endings: 68
+- Bad endings: 8
+- Within 30 days: 24
+
+### Random Player
+
+- Total: 100
+- Average ending day: 31.66
+- True route locked: 64
+- Character true endings: 56
+- Bad endings: 30
+- Within 30 days: 36
+
+### Read
+
+- The three character true endings all remain reachable.
+- `BAD_DECOMPRESSION` sits near the intended rare accident range.
+- The new hooks make truth-seeking runs longer and more character-driven instead of revealing the final truth too early.

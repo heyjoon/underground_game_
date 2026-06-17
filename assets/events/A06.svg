@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">17번 신호</title>
+  <desc id="desc">ANOMALY event illustration for DOWNLINK.</desc>
+  <rect width="1280" height="720" fill="#161620"/>
+  <rect x="72" y="70" width="1136" height="580" rx="18" fill="#222038" opacity="0.38"/>
+  <path d="M0 640h1280M0 112h1280M88 0v720M1192 0v720" stroke="#5c4b83" stroke-width="2" opacity="0.34"/>
+  <rect x="80" y="566" width="34" height="64" fill="#a48ad4" opacity="0.08"/><rect x="152" y="578" width="34" height="52" fill="#a48ad4" opacity="0.10500000000000001"/><rect x="224" y="568" width="34" height="62" fill="#a48ad4" opacity="0.13"/><rect x="296" y="563" width="34" height="67" fill="#a48ad4" opacity="0.15500000000000003"/><rect x="368" y="561" width="34" height="69" fill="#a48ad4" opacity="0.08"/><rect x="440" y="560" width="34" height="70" fill="#a48ad4" opacity="0.10500000000000001"/><rect x="512" y="575" width="34" height="55" fill="#a48ad4" opacity="0.13"/><rect x="584" y="583" width="34" height="47" fill="#a48ad4" opacity="0.15500000000000003"/><rect x="656" y="587" width="34" height="43" fill="#a48ad4" opacity="0.08"/><rect x="728" y="589" width="34" height="41" fill="#a48ad4" opacity="0.10500000000000001"/><rect x="800" y="590" width="34" height="40" fill="#a48ad4" opacity="0.13"/><rect x="872" y="574" width="34" height="56" fill="#a48ad4" opacity="0.15500000000000003"/><rect x="944" y="582" width="34" height="48" fill="#a48ad4" opacity="0.08"/><rect x="1016" y="570" width="34" height="60" fill="#a48ad4" opacity="0.10500000000000001"/><rect x="1088" y="564" width="34" height="66" fill="#a48ad4" opacity="0.13"/><rect x="1160" y="561" width="34" height="69" fill="#a48ad4" opacity="0.15500000000000003"/>
+  
+    <rect x="250" y="180" width="730" height="360" rx="18" fill="#222038" stroke="#5c4b83" stroke-width="6"/>
+    <path d="M610 210l-80 150h92l-64 170 160-220h-100l70-100z" fill="#a48ad4" opacity="0.9"/>
+    <path d="M310 250h140M310 330h120M800 270h120M790 380h150" stroke="#a48ad4" stroke-width="8" opacity="0.5"/>
+  
+  <rect x="0" y="0" width="1280" height="720" fill="none" stroke="#a48ad4" stroke-width="10" opacity="0.18"/>
+  <text x="86" y="112" fill="#a48ad4" font-family="Pretendard, Noto Sans KR, sans-serif" font-size="26" font-weight="700" opacity="0.9">ANOMALY / A06</text>
+</svg>

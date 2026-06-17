@@ -45,10 +45,17 @@ const categoryWeights = [
   { maxDay: Infinity, weights: { SURVIVAL: 26, RAIDER: 15, DISEASE: 12, ANOMALY: 18, STORY: 22, WORLD: 7 } }
 ];
 const progressEvents = [
+  { id: "CS01", minDay: 4, counter: "dayCount", value: 4, requiredCharacter: "seojin", missingFlag: "seojin_seed_seen" },
+  { id: "CT01", minDay: 4, counter: "dayCount", value: 4, requiredCharacter: "taeo", missingFlag: "taeo_order_zero_seen" },
+  { id: "CH01", minDay: 4, counter: "dayCount", value: 4, requiredCharacter: "harin", missingFlag: "harin_delivery_seen" },
   { id: "T01", minDay: 6, counter: "truthFlag", value: 1, missingFlag: "story_broadcast_seen" },
   { id: "T02", minDay: 10, counter: "systemFailure", value: 2, missingFlag: "story_power_seen" },
   { id: "T03", minDay: 14, counter: "hopeLevel", value: 2, missingFlag: "story_surface_order" },
+  { id: "CS02", minDay: 16, counter: "truthFlag", value: 2, requiredCharacter: "seojin", missingFlag: "seojin_signature_seen" },
+  { id: "CT02", minDay: 16, counter: "truthFlag", value: 2, requiredCharacter: "taeo", missingFlag: "taeo_helmet_seen" },
+  { id: "CH02", minDay: 16, counter: "truthFlag", value: 2, requiredCharacter: "harin", missingFlag: "harin_platform_seen" },
   { id: "T04", minDay: 18, counter: "truthFlag", value: 2, missingFlag: "story_old_record" },
+  { id: "T06", minDay: 20, counter: "truthFlag", value: 3, missingFlag: "story_missing_names_seen" },
   { id: "C_T01", minDay: 21, counter: "truthFlag", value: 4, missingFlag: "truthCritical_seen" },
   { id: "T05", minDay: 23, counter: "truthFlag", value: 4, missingFlag: "FINAL_CHOICE_MADE" },
   { id: "F30", minDay: 24, counter: "dayCount", value: 24, missingFlag: "FINAL_CHOICE_MADE" },
@@ -187,6 +194,7 @@ function selectProgressEvent(state) {
     const event = eventsById[rule.id];
     if (!event) continue;
     if (state.counters.dayCount < rule.minDay) continue;
+    if (rule.requiredCharacter && rule.requiredCharacter !== state.characterId) continue;
     if (rule.requiredFlag && !state.flags.includes(rule.requiredFlag)) continue;
     if (rule.missingFlag && state.flags.includes(rule.missingFlag)) continue;
     if ((state.counters[rule.counter] || 0) < rule.value) continue;
@@ -220,6 +228,7 @@ function pickWeighted(state, events) {
 
 function isEventAvailable(state, event) {
   const day = state.counters.dayCount;
+  if (event.requiredCharacter && event.requiredCharacter !== state.characterId) return false;
   if (event.minDay && day < event.minDay) return false;
   if (event.maxDay && day > event.maxDay) return false;
   if (!hasAll(event.requiredFlags, state.flags)) return false;
@@ -366,7 +375,7 @@ function maybeLockTrueRoute(state) {
   const hasEnoughTruth = (state.counters.truthFlag || 0) >= 4 || (state.characterFlags.truth || 0) >= 4;
   if (madeFinalSignal && hasEnoughTruth && state.human >= 1) {
     addFlag(state, "TRUE_ROUTE_LOCKED");
-    state.trueRouteRiskDay = state.riskRng() < 0.1 ? 31 + Math.floor(state.riskRng() * 9) : null;
+    state.trueRouteRiskDay = state.riskRng() < 0.08 ? 31 + Math.floor(state.riskRng() * 9) : null;
   }
 }
 

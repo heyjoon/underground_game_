@@ -28,6 +28,7 @@ http://127.0.0.1:4180/
 ## Current Game Structure
 
 - Choose one of three characters.
+- Character arcs now branch around `SEED-17`, `ORDER-0`, and the unfinished delivery to the surface gate.
 - Events, endings, and character cards use local SVG images under `assets/`.
 - Visible stats use a 3-pip structure:
   - 체력
@@ -83,7 +84,7 @@ Start day
 -> next day
 ```
 
-Current random event count: 56.
+Current random event count: 64.
 
 ## Development Notes
 

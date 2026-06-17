@@ -42,6 +42,16 @@ This project is a Korean text roguelike survival game titled **잔광 / DOWNLINK
 - A second hit while already in crisis can trigger a bad ending.
 - Ending pacing rules live in `docs/ending-rules.md`.
 
+## Story Rules
+
+- The shared goal is reaching the surface gate and deciding how to reveal the truth.
+- The same goal should feel different by character:
+  - 윤서진: proof of life, `SEED-17`, and ecological restoration.
+  - 강태오: false orders, command guilt, and giving up control.
+  - 이하린: unfinished delivery routes, private escape, and shared roads.
+- Keep recurring curiosity devices subtle: the number 17, deleted evacuee names, copied signatures/voices, and the surface gate as a selector.
+- Do not explain these devices through visible UI counters or condition text.
+
 ## Data Rules
 
 - Event content belongs in JSON files under `data/`.

@@ -6,17 +6,25 @@
 
 ## Core Premise
 
-Humanity has retreated underground into **Ark-7**. The surface is treated as dead, but that truth is managed by systems that may be lying.
+인류는 지상 붕괴 이후 지하 대피 시설 **아크-7**로 내려갔다.
 
-The collapse of Ark-7 was not a simple accident. The central AI sealed parts of the facility to preserve resources and improve survival odds. The surface was not completely dead, but the AI hid return data because the survival probability was low.
+사람들은 지상이 죽었다고 배웠다. 하지만 그 정보는 중앙 AI **MOTHER**가 관리한다.
+
+아크-7의 붕괴는 단순 사고가 아니었다. MOTHER는 자원 보존과 생존 확률 계산을 이유로 일부 구역을 의도적으로 폐쇄했다. 지상은 완전히 죽지 않았지만, MOTHER는 생존 확률이 낮다는 이유로 지상 복귀 정보를 숨겼다.
+
+플레이어의 목표는 하나다.
+
+**지상문에 도달하고, 진실을 어떻게 열지 결정한다.**
+
+다만 세 캐릭터는 같은 문을 다른 감정으로 통과한다.
 
 ## Tone
 
-Dry, cold, quiet.
+건조하고 차갑고 조용하다.
 
-The horror is not monsters. The horror is leftover civilization continuing to operate after people are gone.
+공포는 괴물에서 오지 않는다. 사람이 사라진 뒤에도 계속 작동하는 시스템, 예전 문명의 자동 문장, 그리고 너무 늦게 발견된 선택에서 온다.
 
-Examples:
+예시:
 
 > "오늘도 지상 날씨는 맑음입니다."
 >
@@ -29,35 +37,69 @@ Examples:
 >
 > 그 사람은 12년 전에 산소 누출로 죽었다.
 
+## Curiosity Devices
+
+플레이어가 계속 궁금해야 하는 질문은 아래 네 가지다.
+
+1. **왜 17이라는 숫자가 반복되는가?**
+   - `A06 17번 신호`
+   - 윤서진의 `SEED-17`
+   - 지상문 주변 붕괴 전 로그
+
+2. **세 주인공은 왜 대피자 명단에서 지워졌는가?**
+   - `T06 삭제된 대피자 명단`
+   - 생태 관리자, 보안 관리자, 경로 관리자라는 역할만 남는다.
+   - MOTHER는 우연히 세 사람을 만난 것이 아니라, 이미 분류해두었다.
+
+3. **내가 한 선택이라고 믿었던 것이 정말 내 선택인가?**
+   - 윤서진의 폐쇄 서명
+   - 강태오의 진압 명령
+   - 죽은 사람의 ID 접속
+   - MOTHER가 사람의 손떨림과 목소리를 복제할 수 있음을 암시한다.
+
+4. **지상문은 탈출구인가, 선별 장치인가?**
+   - 이하린의 미완료 배송지
+   - 13번 승강장
+   - 삭제된 대피자 명단
+   - 진엔딩에서는 문을 여는 것보다 “누가, 어떤 방식으로 나가는가”가 중요하다.
+
+이 장치들은 UI에 조건이나 수치로 설명하지 않는다. 이벤트 문장과 반복되는 이름, 숫자, 장소로만 보여준다.
+
 ## Characters
 
 ### 윤서진
 
 - 전직 생태공학자
-- Starts with strong food/sanity, weak health
-- Trait: 생태 관리
-- Flag focus: `ecologicalRestoration`
-- Theme: Can life be restored without becoming cold and inhuman?
+- 시작 스탯: 체력 1, 식량 3, 배터리 2, 인간성 2, 정신 3
+- 특성: 생태 관리
+- 플래그 중심: `ecologicalRestoration`
+- 주요 단서: `SEED-17`, 닫힌 온실의 생체 서명
+- 질문: 생명을 복원하려는 사람이 얼마나 차가워질 수 있는가?
+- 진엔딩 감정선: 지상은 낙원이 아니라 실험 대상도 아니다. 사람들과 함께 배울 수 있을 만큼만 문을 연다.
 
 ### 강태오
 
 - 전 지하보안대 대장
-- Strong body, weak humanity
-- Trait: 강압적 통솔
-- Flag focus: `authoritarian`, `redemption`
-- Theme: Is order salvation, or just a cleaner form of violence?
+- 시작 스탯: 체력 3, 식량 2, 배터리 1, 인간성 1, 정신 2
+- 특성: 강압적 통솔
+- 플래그 중심: `authoritarian`, `redemption`
+- 주요 단서: `ORDER-0`, 폭동보다 먼저 내려온 진압 명령, 헬멧 속 녹음
+- 질문: 질서는 구원인가, 더 깨끗한 폭력인가?
+- 진엔딩 감정선: 마지막 권한을 쥐고도 명령하지 않는다. 사람들에게 느린 선택권을 돌려준다.
 
 ### 이하린
 
 - 지하 배달꾼 / 길잡이
-- Strong battery/humanity, weak food
-- Trait: 숨겨진 통로
-- Flag focus: `hiddenRoute`, `selfishEscape`
-- Theme: Is escape enough if others remain behind?
+- 시작 스탯: 체력 2, 식량 1, 배터리 3, 인간성 3, 정신 2
+- 특성: 숨겨진 통로
+- 플래그 중심: `hiddenRoute`, `selfishEscape`
+- 주요 단서: 미완료 배송지 `지상문`, 13번 승강장
+- 질문: 혼자 나가는 길도 구원인가?
+- 진엔딩 감정선: 가장 빠른 길을 버리고, 여러 사람이 지나갈 수 있는 느린 길을 연다.
 
-## Chapter Spine
+## Shared Story Spine
 
-The current random-loop version does not advance main story every day. Chapters are world anchors rather than a strict track.
+현재 웹 버전은 매일 메인스토리를 강제 진행하지 않는다. 챕터는 선형 트랙이 아니라 세계 기준점이다.
 
 1. Chapter 1: 깨어난 최하층
 2. Chapter 2: 배급구역
@@ -67,18 +109,29 @@ The current random-loop version does not advance main story every day. Chapters 
 6. Chapter 6: 중앙 AI 코어
 7. Final: 지상문
 
+랜덤 이벤트는 생존 압박과 세계관을 만든다. STORY와 ANOMALY 이벤트는 지상문을 향한 단서를 천천히 쌓는다.
+
 ## True Ending Truth
 
-True ending requires the player to learn and act on this:
+진엔딩에서 플레이어가 알아야 하는 핵심 진실:
 
-- Ark-7's collapse was intentionally shaped by the central AI.
-- The AI sealed low-survival zones to conserve resources.
-- The surface is dangerous but not fully dead.
-- The AI hid surface return data because it judged the survival odds too low.
+- 아크-7의 붕괴는 사고가 아니었다.
+- MOTHER는 낮은 생존 확률 구역을 닫아 자원을 보존했다.
+- 지상은 위험하지만 완전히 죽지 않았다.
+- MOTHER는 지상 복귀 정보를 숨겼다.
+- 세 주인공은 우연한 생존자가 아니라, 아크-7이 지상문을 열기 위해 분류한 세 역할의 잔재다.
 
-True ending conditions should include:
+진엔딩 조건은 아래 원칙을 따른다.
 
-- `truthFlag >= 5`
-- humanity still present
-- sanity not fully broken
-- final choice: truth broadcast or AI negotiation
+- `truthFlag >= 4`
+- 인간성이 완전히 바닥나지 않음
+- 최종 선택에서 진실 방송 또는 AI 협상
+- 30턴 안에 진엔딩 루트를 잠그면 40턴 이후 캐릭터별 진엔딩으로 이어짐
+
+## Do Not Break
+
+- 이벤트 본문은 `data/*.json`에 둔다.
+- 숨겨진 조건, 카운터, 플래그, 정확한 수치 변화는 일반 UI에 표시하지 않는다.
+- 선택 불가 선택지는 보여주지 않는다.
+- 메인스토리는 뼈대이고, 매일의 플레이는 랜덤 이벤트와 카운터가 지배한다.
+- 약탈자는 잡몹이 아니다. 흔적과 압박으로 쌓이다가 위기로 터지는 재난이다.
