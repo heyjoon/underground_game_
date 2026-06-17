@@ -49,6 +49,7 @@ This project is a Korean text roguelike survival game titled **잔광 / DOWNLINK
 - Character definitions belong in `data/characters.json`.
 - Random survival events belong in `data/random_events.json`.
 - Ending conditions belong in `data/endings.json`.
+- Event, ending, and character images belong in local `assets/` folders.
 
 ## Code Style
 

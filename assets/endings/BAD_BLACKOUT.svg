@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">BAD END. 정전 엔딩</title>
+  <desc id="desc">Ending illustration for DOWNLINK.</desc>
+  <rect width="1280" height="720" fill="#1d1515"/>
+  <rect x="62" y="60" width="1156" height="600" rx="20" fill="#311f1f" opacity="0.42"/>
+  <path d="M80 600h1120M110 120h1060" stroke="#7d3f3f" stroke-width="3" opacity="0.5"/>
+  <rect x="80" y="560" width="34" height="70" fill="#d66b6b" opacity="0.08"/><rect x="152" y="559" width="34" height="71" fill="#d66b6b" opacity="0.10500000000000001"/><rect x="224" y="575" width="34" height="55" fill="#d66b6b" opacity="0.13"/><rect x="296" y="567" width="34" height="63" fill="#d66b6b" opacity="0.15500000000000003"/><rect x="368" y="579" width="34" height="51" fill="#d66b6b" opacity="0.08"/><rect x="440" y="585" width="34" height="45" fill="#d66b6b" opacity="0.10500000000000001"/><rect x="512" y="572" width="34" height="58" fill="#d66b6b" opacity="0.13"/><rect x="584" y="581" width="34" height="49" fill="#d66b6b" opacity="0.15500000000000003"/><rect x="656" y="570" width="34" height="60" fill="#d66b6b" opacity="0.08"/><rect x="728" y="580" width="34" height="50" fill="#d66b6b" opacity="0.10500000000000001"/><rect x="800" y="569" width="34" height="61" fill="#d66b6b" opacity="0.13"/><rect x="872" y="580" width="34" height="50" fill="#d66b6b" opacity="0.15500000000000003"/><rect x="944" y="585" width="34" height="45" fill="#d66b6b" opacity="0.08"/><rect x="1016" y="572" width="34" height="58" fill="#d66b6b" opacity="0.10500000000000001"/><rect x="1088" y="565" width="34" height="65" fill="#d66b6b" opacity="0.13"/><rect x="1160" y="562" width="34" height="68" fill="#d66b6b" opacity="0.15500000000000003"/>
+  
+    <rect x="250" y="180" width="730" height="360" rx="18" fill="#311f1f" stroke="#7d3f3f" stroke-width="6"/>
+    <path d="M610 210l-80 150h92l-64 170 160-220h-100l70-100z" fill="#d66b6b" opacity="0.9"/>
+    <path d="M310 250h140M310 330h120M800 270h120M790 380h150" stroke="#d66b6b" stroke-width="8" opacity="0.5"/>
+  
+  <text x="86" y="112" fill="#d66b6b" font-family="Pretendard, Noto Sans KR, sans-serif" font-size="26" font-weight="700" opacity="0.9">ENDING / BAD_BLACKOUT</text>
+</svg>

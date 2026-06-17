@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">문 앞의 검은 표식</title>
+  <desc id="desc">RAIDER event illustration for DOWNLINK.</desc>
+  <rect width="1280" height="720" fill="#1b1617"/>
+  <rect x="72" y="70" width="1136" height="580" rx="18" fill="#2a1d20" opacity="0.38"/>
+  <path d="M0 640h1280M0 112h1280M88 0v720M1192 0v720" stroke="#743d42" stroke-width="2" opacity="0.34"/>
+  <rect x="80" y="573" width="34" height="57" fill="#c76565" opacity="0.08"/><rect x="152" y="582" width="34" height="48" fill="#c76565" opacity="0.10500000000000001"/><rect x="224" y="570" width="34" height="60" fill="#c76565" opacity="0.13"/><rect x="296" y="564" width="34" height="66" fill="#c76565" opacity="0.15500000000000003"/><rect x="368" y="577" width="34" height="53" fill="#c76565" opacity="0.08"/><rect x="440" y="584" width="34" height="46" fill="#c76565" opacity="0.10500000000000001"/><rect x="512" y="587" width="34" height="43" fill="#c76565" opacity="0.13"/><rect x="584" y="573" width="34" height="57" fill="#c76565" opacity="0.15500000000000003"/><rect x="656" y="566" width="34" height="64" fill="#c76565" opacity="0.08"/><rect x="728" y="578" width="34" height="52" fill="#c76565" opacity="0.10500000000000001"/><rect x="800" y="584" width="34" height="46" fill="#c76565" opacity="0.13"/><rect x="872" y="587" width="34" height="43" fill="#c76565" opacity="0.15500000000000003"/><rect x="944" y="589" width="34" height="41" fill="#c76565" opacity="0.08"/><rect x="1016" y="574" width="34" height="56" fill="#c76565" opacity="0.10500000000000001"/><rect x="1088" y="566" width="34" height="64" fill="#c76565" opacity="0.13"/><rect x="1160" y="562" width="34" height="68" fill="#c76565" opacity="0.15500000000000003"/>
+  
+    <path d="M450 610V150h330v460" fill="#2a1d20" stroke="#c76565" stroke-width="8"/>
+    <path d="M515 610V220h200v390" fill="#1b1617" stroke="#743d42" stroke-width="6"/>
+    <circle cx="684" cy="412" r="12" fill="#c76565"/>
+    <path d="M220 610h780M390 610l60 -460M840 610l-60 -460" stroke="#743d42" stroke-width="10" opacity="0.7"/>
+  
+  <rect x="0" y="0" width="1280" height="720" fill="none" stroke="#c76565" stroke-width="10" opacity="0.18"/>
+  <text x="86" y="112" fill="#c76565" font-family="Pretendard, Noto Sans KR, sans-serif" font-size="26" font-weight="700" opacity="0.9">RAIDER / R01</text>
+</svg>

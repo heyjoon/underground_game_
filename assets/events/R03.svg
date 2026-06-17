@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">통행세</title>
+  <desc id="desc">RAIDER event illustration for DOWNLINK.</desc>
+  <rect width="1280" height="720" fill="#1b1617"/>
+  <rect x="72" y="70" width="1136" height="580" rx="18" fill="#2a1d20" opacity="0.38"/>
+  <path d="M0 640h1280M0 112h1280M88 0v720M1192 0v720" stroke="#743d42" stroke-width="2" opacity="0.34"/>
+  <rect x="80" y="578" width="34" height="52" fill="#c76565" opacity="0.08"/><rect x="152" y="568" width="34" height="62" fill="#c76565" opacity="0.10500000000000001"/><rect x="224" y="579" width="34" height="51" fill="#c76565" opacity="0.13"/><rect x="296" y="585" width="34" height="45" fill="#c76565" opacity="0.15500000000000003"/><rect x="368" y="588" width="34" height="42" fill="#c76565" opacity="0.08"/><rect x="440" y="573" width="34" height="57" fill="#c76565" opacity="0.10500000000000001"/><rect x="512" y="566" width="34" height="64" fill="#c76565" opacity="0.13"/><rect x="584" y="578" width="34" height="52" fill="#c76565" opacity="0.15500000000000003"/><rect x="656" y="568" width="34" height="62" fill="#c76565" opacity="0.08"/><rect x="728" y="563" width="34" height="67" fill="#c76565" opacity="0.10500000000000001"/><rect x="800" y="577" width="34" height="53" fill="#c76565" opacity="0.13"/><rect x="872" y="584" width="34" height="46" fill="#c76565" opacity="0.15500000000000003"/><rect x="944" y="571" width="34" height="59" fill="#c76565" opacity="0.08"/><rect x="1016" y="565" width="34" height="65" fill="#c76565" opacity="0.10500000000000001"/><rect x="1088" y="578" width="34" height="52" fill="#c76565" opacity="0.13"/><rect x="1160" y="568" width="34" height="62" fill="#c76565" opacity="0.15500000000000003"/>
+  
+    <rect x="250" y="180" width="730" height="360" rx="18" fill="#2a1d20" stroke="#743d42" stroke-width="6"/>
+    <path d="M610 210l-80 150h92l-64 170 160-220h-100l70-100z" fill="#c76565" opacity="0.9"/>
+    <path d="M310 250h140M310 330h120M800 270h120M790 380h150" stroke="#c76565" stroke-width="8" opacity="0.5"/>
+  
+  <rect x="0" y="0" width="1280" height="720" fill="none" stroke="#c76565" stroke-width="10" opacity="0.18"/>
+  <text x="86" y="112" fill="#c76565" font-family="Pretendard, Noto Sans KR, sans-serif" font-size="26" font-weight="700" opacity="0.9">RAIDER / R03</text>
+</svg>

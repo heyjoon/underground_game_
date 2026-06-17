@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">이하린 END. 공동 탈출</title>
+  <desc id="desc">Ending illustration for DOWNLINK.</desc>
+  <rect width="1280" height="720" fill="#111417"/>
+  <rect x="62" y="60" width="1156" height="600" rx="20" fill="#1b2328" opacity="0.42"/>
+  <path d="M80 600h1120M110 120h1060" stroke="#696150" stroke-width="3" opacity="0.5"/>
+  <rect x="80" y="579" width="34" height="51" fill="#d4c6aa" opacity="0.08"/><rect x="152" y="585" width="34" height="45" fill="#d4c6aa" opacity="0.10500000000000001"/><rect x="224" y="572" width="34" height="58" fill="#d4c6aa" opacity="0.13"/><rect x="296" y="581" width="34" height="49" fill="#d4c6aa" opacity="0.15500000000000003"/><rect x="368" y="586" width="34" height="44" fill="#d4c6aa" opacity="0.08"/><rect x="440" y="588" width="34" height="42" fill="#d4c6aa" opacity="0.10500000000000001"/><rect x="512" y="589" width="34" height="41" fill="#d4c6aa" opacity="0.13"/><rect x="584" y="574" width="34" height="56" fill="#d4c6aa" opacity="0.15500000000000003"/><rect x="656" y="582" width="34" height="48" fill="#d4c6aa" opacity="0.08"/><rect x="728" y="586" width="34" height="44" fill="#d4c6aa" opacity="0.10500000000000001"/><rect x="800" y="572" width="34" height="58" fill="#d4c6aa" opacity="0.13"/><rect x="872" y="565" width="34" height="65" fill="#d4c6aa" opacity="0.15500000000000003"/><rect x="944" y="562" width="34" height="68" fill="#d4c6aa" opacity="0.08"/><rect x="1016" y="560" width="34" height="70" fill="#d4c6aa" opacity="0.10500000000000001"/><rect x="1088" y="559" width="34" height="71" fill="#d4c6aa" opacity="0.13"/><rect x="1160" y="575" width="34" height="55" fill="#d4c6aa" opacity="0.15500000000000003"/>
+  
+    <path d="M190 620L455 160h350l285 460z" fill="#1b2328" stroke="#696150" stroke-width="6"/>
+    <path d="M455 160v460M805 160v460M300 430h660M375 300h500" stroke="#d4c6aa" stroke-width="8" opacity="0.35"/>
+  
+  <text x="86" y="112" fill="#d4c6aa" font-family="Pretendard, Noto Sans KR, sans-serif" font-size="26" font-weight="700" opacity="0.9">ENDING / HARIN_TOGETHER</text>
+</svg>

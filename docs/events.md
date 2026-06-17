@@ -99,6 +99,7 @@ Events live in `data/random_events.json`.
   "requiredFlags": [],
   "blockedFlags": [],
   "counterMin": {},
+  "image": "assets/events/W08.svg",
   "text": "...",
   "choices": [
     {
@@ -117,6 +118,7 @@ Events live in `data/random_events.json`.
 ## UI Rules
 
 - Show title, event body, and choice buttons.
+- Show the event image when `image` is present.
 - Hide unavailable choices.
 - Do not show hidden counters in normal play.
 - Do not show exact stat/counter deltas in normal play.

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">TRUE END. 지상문</title>
+  <desc id="desc">Ending illustration for DOWNLINK.</desc>
+  <rect width="1280" height="720" fill="#111417"/>
+  <rect x="62" y="60" width="1156" height="600" rx="20" fill="#1b2328" opacity="0.42"/>
+  <path d="M80 600h1120M110 120h1060" stroke="#696150" stroke-width="3" opacity="0.5"/>
+  <rect x="80" y="589" width="34" height="41" fill="#d4c6aa" opacity="0.08"/><rect x="152" y="590" width="34" height="40" fill="#d4c6aa" opacity="0.10500000000000001"/><rect x="224" y="574" width="34" height="56" fill="#d4c6aa" opacity="0.13"/><rect x="296" y="566" width="34" height="64" fill="#d4c6aa" opacity="0.15500000000000003"/><rect x="368" y="562" width="34" height="68" fill="#d4c6aa" opacity="0.08"/><rect x="440" y="560" width="34" height="70" fill="#d4c6aa" opacity="0.10500000000000001"/><rect x="512" y="575" width="34" height="55" fill="#d4c6aa" opacity="0.13"/><rect x="584" y="583" width="34" height="47" fill="#d4c6aa" opacity="0.15500000000000003"/><rect x="656" y="587" width="34" height="43" fill="#d4c6aa" opacity="0.08"/><rect x="728" y="573" width="34" height="57" fill="#d4c6aa" opacity="0.10500000000000001"/><rect x="800" y="582" width="34" height="48" fill="#d4c6aa" opacity="0.13"/><rect x="872" y="570" width="34" height="60" fill="#d4c6aa" opacity="0.15500000000000003"/><rect x="944" y="580" width="34" height="50" fill="#d4c6aa" opacity="0.08"/><rect x="1016" y="569" width="34" height="61" fill="#d4c6aa" opacity="0.10500000000000001"/><rect x="1088" y="564" width="34" height="66" fill="#d4c6aa" opacity="0.13"/><rect x="1160" y="561" width="34" height="69" fill="#d4c6aa" opacity="0.15500000000000003"/>
+  
+    <path d="M110 520h1060" stroke="#696150" stroke-width="18"/>
+    <circle cx="880" cy="240" r="92" fill="#d4c6aa" opacity="0.58"/>
+    <path d="M190 520c120 -190 230 -190 340 0M490 520c120 -240 270 -240 420 0" fill="#1b2328" stroke="#696150" stroke-width="5"/>
+    <path d="M160 440h220M820 420h250" stroke="#d4c6aa" stroke-width="9" opacity="0.42"/>
+  
+  <text x="86" y="112" fill="#d4c6aa" font-family="Pretendard, Noto Sans KR, sans-serif" font-size="26" font-weight="700" opacity="0.9">ENDING / TRUE_ARK7</text>
+</svg>

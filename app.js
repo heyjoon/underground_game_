@@ -93,6 +93,8 @@ const el = {
   stats: document.querySelector("#stats"),
   itemsPanel: document.querySelector("#itemsPanel"),
   items: document.querySelector("#items"),
+  sceneFigure: document.querySelector("#sceneFigure"),
+  sceneImage: document.querySelector("#sceneImage"),
   eventTitle: document.querySelector("#eventTitle"),
   eventText: document.querySelector("#eventText"),
   choices: document.querySelector("#choices")
@@ -465,6 +467,7 @@ function hasAnyOrEmpty(list = [], source = []) {
 }
 
 function renderCharacterSelect() {
+  renderSceneImage({ title: "생존자 선택", image: "assets/ui/character-select.svg" });
   el.eventTitle.textContent = "생존자 선택";
   el.eventText.textContent = "아크-7의 최하층에서 눈을 뜬다.\n\n누구로 살아남을 것인가.";
   el.choices.innerHTML = "";
@@ -475,6 +478,7 @@ function renderCharacterSelect() {
     const button = document.createElement("button");
     button.className = "choice character-choice";
     button.innerHTML = `
+      ${character.image ? `<img class="character-image" src="${character.image}" alt="" />` : ""}
       <strong>${character.name}</strong>
       <small>${character.role}</small>
       <small>${character.story}</small>
@@ -507,6 +511,7 @@ function renderEvent() {
   }
 
   el.eventTitle.textContent = currentEvent.title;
+  renderSceneImage(currentEvent);
   el.eventText.textContent = currentEvent.text;
   el.choices.innerHTML = "";
 
@@ -521,6 +526,7 @@ function renderEvent() {
 }
 
 function renderResult(choice, result) {
+  renderSceneImage(currentEvent);
   el.eventTitle.textContent = "생존 로그";
   const crisisText = result.crisisStarted.length
     ? `\n\n몸이 버티지 못했다. 위기 상태에 들어갔다.`
@@ -536,6 +542,7 @@ function renderResult(choice, result) {
 }
 
 function renderEnding(ending) {
+  renderSceneImage(ending);
   el.eventTitle.textContent = ending.title;
   el.eventText.textContent = ending.text;
   el.choices.innerHTML = "";
@@ -546,6 +553,18 @@ function renderEnding(ending) {
   el.choices.appendChild(restart);
   autoSave();
   renderSidebars();
+}
+
+function renderSceneImage(entry) {
+  if (!entry?.image) {
+    el.sceneFigure.hidden = true;
+    el.sceneImage.removeAttribute("src");
+    el.sceneImage.alt = "";
+    return;
+  }
+  el.sceneImage.src = entry.image;
+  el.sceneImage.alt = entry.title || "";
+  el.sceneFigure.hidden = false;
 }
 
 function renderStats() {

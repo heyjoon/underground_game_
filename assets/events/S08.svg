@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">의약품 분배</title>
+  <desc id="desc">SURVIVAL event illustration for DOWNLINK.</desc>
+  <rect width="1280" height="720" fill="#171a1d"/>
+  <rect x="72" y="70" width="1136" height="580" rx="18" fill="#26291f" opacity="0.38"/>
+  <path d="M0 640h1280M0 112h1280M88 0v720M1192 0v720" stroke="#7b6b47" stroke-width="2" opacity="0.34"/>
+  <rect x="80" y="571" width="34" height="59" fill="#d9b15f" opacity="0.08"/><rect x="152" y="565" width="34" height="65" fill="#d9b15f" opacity="0.10500000000000001"/><rect x="224" y="578" width="34" height="52" fill="#d9b15f" opacity="0.13"/><rect x="296" y="568" width="34" height="62" fill="#d9b15f" opacity="0.15500000000000003"/><rect x="368" y="563" width="34" height="67" fill="#d9b15f" opacity="0.08"/><rect x="440" y="577" width="34" height="53" fill="#d9b15f" opacity="0.10500000000000001"/><rect x="512" y="584" width="34" height="46" fill="#d9b15f" opacity="0.13"/><rect x="584" y="587" width="34" height="43" fill="#d9b15f" opacity="0.15500000000000003"/><rect x="656" y="589" width="34" height="41" fill="#d9b15f" opacity="0.08"/><rect x="728" y="574" width="34" height="56" fill="#d9b15f" opacity="0.10500000000000001"/><rect x="800" y="582" width="34" height="48" fill="#d9b15f" opacity="0.13"/><rect x="872" y="570" width="34" height="60" fill="#d9b15f" opacity="0.15500000000000003"/><rect x="944" y="564" width="34" height="66" fill="#d9b15f" opacity="0.08"/><rect x="1016" y="577" width="34" height="53" fill="#d9b15f" opacity="0.10500000000000001"/><rect x="1088" y="584" width="34" height="46" fill="#d9b15f" opacity="0.13"/><rect x="1160" y="587" width="34" height="43" fill="#d9b15f" opacity="0.15500000000000003"/>
+  
+    <rect x="230" y="210" width="780" height="330" rx="14" fill="#26291f" stroke="#7b6b47" stroke-width="6"/>
+    <path d="M290 290h660M290 390h660" stroke="#7b6b47" stroke-width="5" opacity="0.7"/>
+    <path d="M585 275h70v70h70v70h-70v70h-70v-70h-70v-70h70z" fill="#d9b15f" opacity="0.78"/>
+    <path d="M230 210l780 330M1010 210L230 540" stroke="#d9b15f" stroke-width="7" opacity="0.24"/>
+  
+  <rect x="0" y="0" width="1280" height="720" fill="none" stroke="#d9b15f" stroke-width="10" opacity="0.18"/>
+  <text x="86" y="112" fill="#d9b15f" font-family="Pretendard, Noto Sans KR, sans-serif" font-size="26" font-weight="700" opacity="0.9">SURVIVAL / S08</text>
+</svg>

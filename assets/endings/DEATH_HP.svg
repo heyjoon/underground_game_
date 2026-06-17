@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">DEATH. 끊긴 신호</title>
+  <desc id="desc">Ending illustration for DOWNLINK.</desc>
+  <rect width="1280" height="720" fill="#1d1515"/>
+  <rect x="62" y="60" width="1156" height="600" rx="20" fill="#311f1f" opacity="0.42"/>
+  <path d="M80 600h1120M110 120h1060" stroke="#7d3f3f" stroke-width="3" opacity="0.5"/>
+  <rect x="80" y="588" width="34" height="42" fill="#d66b6b" opacity="0.08"/><rect x="152" y="573" width="34" height="57" fill="#d66b6b" opacity="0.10500000000000001"/><rect x="224" y="566" width="34" height="64" fill="#d66b6b" opacity="0.13"/><rect x="296" y="578" width="34" height="52" fill="#d66b6b" opacity="0.15500000000000003"/><rect x="368" y="584" width="34" height="46" fill="#d66b6b" opacity="0.08"/><rect x="440" y="587" width="34" height="43" fill="#d66b6b" opacity="0.10500000000000001"/><rect x="512" y="573" width="34" height="57" fill="#d66b6b" opacity="0.13"/><rect x="584" y="566" width="34" height="64" fill="#d66b6b" opacity="0.15500000000000003"/><rect x="656" y="562" width="34" height="68" fill="#d66b6b" opacity="0.08"/><rect x="728" y="560" width="34" height="70" fill="#d66b6b" opacity="0.10500000000000001"/><rect x="800" y="575" width="34" height="55" fill="#d66b6b" opacity="0.13"/><rect x="872" y="567" width="34" height="63" fill="#d66b6b" opacity="0.15500000000000003"/><rect x="944" y="563" width="34" height="67" fill="#d66b6b" opacity="0.08"/><rect x="1016" y="561" width="34" height="69" fill="#d66b6b" opacity="0.10500000000000001"/><rect x="1088" y="560" width="34" height="70" fill="#d66b6b" opacity="0.13"/><rect x="1160" y="575" width="34" height="55" fill="#d66b6b" opacity="0.15500000000000003"/>
+  
+    <path d="M190 620L455 160h350l285 460z" fill="#311f1f" stroke="#7d3f3f" stroke-width="6"/>
+    <path d="M455 160v460M805 160v460M300 430h660M375 300h500" stroke="#d66b6b" stroke-width="8" opacity="0.35"/>
+  
+  <text x="86" y="112" fill="#d66b6b" font-family="Pretendard, Noto Sans KR, sans-serif" font-size="26" font-weight="700" opacity="0.9">ENDING / DEATH_HP</text>
+</svg>

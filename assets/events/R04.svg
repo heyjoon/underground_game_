@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">가려진 감시 카메라</title>
+  <desc id="desc">RAIDER event illustration for DOWNLINK.</desc>
+  <rect width="1280" height="720" fill="#1b1617"/>
+  <rect x="72" y="70" width="1136" height="580" rx="18" fill="#2a1d20" opacity="0.38"/>
+  <path d="M0 640h1280M0 112h1280M88 0v720M1192 0v720" stroke="#743d42" stroke-width="2" opacity="0.34"/>
+  <rect x="80" y="565" width="34" height="65" fill="#c76565" opacity="0.08"/><rect x="152" y="562" width="34" height="68" fill="#c76565" opacity="0.10500000000000001"/><rect x="224" y="560" width="34" height="70" fill="#c76565" opacity="0.13"/><rect x="296" y="575" width="34" height="55" fill="#c76565" opacity="0.15500000000000003"/><rect x="368" y="583" width="34" height="47" fill="#c76565" opacity="0.08"/><rect x="440" y="587" width="34" height="43" fill="#c76565" opacity="0.10500000000000001"/><rect x="512" y="589" width="34" height="41" fill="#c76565" opacity="0.13"/><rect x="584" y="574" width="34" height="56" fill="#c76565" opacity="0.15500000000000003"/><rect x="656" y="582" width="34" height="48" fill="#c76565" opacity="0.08"/><rect x="728" y="586" width="34" height="44" fill="#c76565" opacity="0.10500000000000001"/><rect x="800" y="572" width="34" height="58" fill="#c76565" opacity="0.13"/><rect x="872" y="565" width="34" height="65" fill="#c76565" opacity="0.15500000000000003"/><rect x="944" y="578" width="34" height="52" fill="#c76565" opacity="0.08"/><rect x="1016" y="584" width="34" height="46" fill="#c76565" opacity="0.10500000000000001"/><rect x="1088" y="587" width="34" height="43" fill="#c76565" opacity="0.13"/><rect x="1160" y="589" width="34" height="41" fill="#c76565" opacity="0.15500000000000003"/>
+  
+    <path d="M280 520h700" stroke="#743d42" stroke-width="18"/>
+    <path d="M350 520l60 -210h150l60 210M720 520l55 -250h120l70 250" stroke="#c76565" stroke-width="16" fill="none" opacity="0.72"/>
+    <path d="M440 250l120 90M870 260l-120 90" stroke="#c76565" stroke-width="12" opacity="0.8"/>
+    <rect x="180" y="160" width="220" height="90" fill="#2a1d20" stroke="#743d42" stroke-width="5"/>
+  
+  <rect x="0" y="0" width="1280" height="720" fill="none" stroke="#c76565" stroke-width="10" opacity="0.18"/>
+  <text x="86" y="112" fill="#c76565" font-family="Pretendard, Noto Sans KR, sans-serif" font-size="26" font-weight="700" opacity="0.9">RAIDER / R04</text>
+</svg>

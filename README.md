@@ -28,6 +28,7 @@ http://127.0.0.1:4180/
 ## Current Game Structure
 
 - Choose one of three characters.
+- Events, endings, and character cards use local SVG images under `assets/`.
 - Visible stats use a 3-pip structure:
   - 체력
   - 식량
@@ -52,6 +53,11 @@ data/
   characters.json
   random_events.json
   endings.json
+assets/
+  events/
+  endings/
+  characters/
+  ui/
 docs/
   story.md
   events.md
@@ -102,4 +108,10 @@ Random event data count:
 
 ```powershell
 C:\Users\yongj\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe -e "const fs=require('fs'); const data=JSON.parse(fs.readFileSync('data/random_events.json','utf8')); console.log(data.length)"
+```
+
+Regenerate local SVG images:
+
+```powershell
+C:\Users\yongj\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe tools\generate_event_images.cjs
 ```

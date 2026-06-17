@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">구시대 지하철 안내</title>
+  <desc id="desc">WORLD event illustration for DOWNLINK.</desc>
+  <rect width="1280" height="720" fill="#15191f"/>
+  <rect x="72" y="70" width="1136" height="580" rx="18" fill="#202936" opacity="0.38"/>
+  <path d="M0 640h1280M0 112h1280M88 0v720M1192 0v720" stroke="#526375" stroke-width="2" opacity="0.34"/>
+  <rect x="80" y="584" width="34" height="46" fill="#91a8c2" opacity="0.08"/><rect x="152" y="587" width="34" height="43" fill="#91a8c2" opacity="0.10500000000000001"/><rect x="224" y="589" width="34" height="41" fill="#91a8c2" opacity="0.13"/><rect x="296" y="590" width="34" height="40" fill="#91a8c2" opacity="0.15500000000000003"/><rect x="368" y="574" width="34" height="56" fill="#91a8c2" opacity="0.08"/><rect x="440" y="582" width="34" height="48" fill="#91a8c2" opacity="0.10500000000000001"/><rect x="512" y="570" width="34" height="60" fill="#91a8c2" opacity="0.13"/><rect x="584" y="564" width="34" height="66" fill="#91a8c2" opacity="0.15500000000000003"/><rect x="656" y="561" width="34" height="69" fill="#91a8c2" opacity="0.08"/><rect x="728" y="576" width="34" height="54" fill="#91a8c2" opacity="0.10500000000000001"/><rect x="800" y="567" width="34" height="63" fill="#91a8c2" opacity="0.13"/><rect x="872" y="579" width="34" height="51" fill="#91a8c2" opacity="0.15500000000000003"/><rect x="944" y="569" width="34" height="61" fill="#91a8c2" opacity="0.08"/><rect x="1016" y="580" width="34" height="50" fill="#91a8c2" opacity="0.10500000000000001"/><rect x="1088" y="569" width="34" height="61" fill="#91a8c2" opacity="0.13"/><rect x="1160" y="564" width="34" height="66" fill="#91a8c2" opacity="0.15500000000000003"/>
+  
+    <rect x="190" y="150" width="860" height="420" rx="20" fill="#202936" stroke="#91a8c2" stroke-width="8"/>
+    <rect x="245" y="210" width="750" height="250" fill="#15191f" stroke="#526375" stroke-width="4"/>
+    <path d="M290 275h320M290 335h520M290 395h220" stroke="#91a8c2" stroke-width="12" opacity="0.55"/>
+    <path d="M520 570h200M610 570v70" stroke="#526375" stroke-width="16"/>
+  
+  <rect x="0" y="0" width="1280" height="720" fill="none" stroke="#91a8c2" stroke-width="10" opacity="0.18"/>
+  <text x="86" y="112" fill="#91a8c2" font-family="Pretendard, Noto Sans KR, sans-serif" font-size="26" font-weight="700" opacity="0.9">WORLD / W06</text>
+</svg>

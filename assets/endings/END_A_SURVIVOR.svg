@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">END A. 생존자</title>
+  <desc id="desc">Ending illustration for DOWNLINK.</desc>
+  <rect width="1280" height="720" fill="#111417"/>
+  <rect x="62" y="60" width="1156" height="600" rx="20" fill="#1b2328" opacity="0.42"/>
+  <path d="M80 600h1120M110 120h1060" stroke="#696150" stroke-width="3" opacity="0.5"/>
+  <rect x="80" y="572" width="34" height="58" fill="#d4c6aa" opacity="0.08"/><rect x="152" y="581" width="34" height="49" fill="#d4c6aa" opacity="0.10500000000000001"/><rect x="224" y="570" width="34" height="60" fill="#d4c6aa" opacity="0.13"/><rect x="296" y="564" width="34" height="66" fill="#d4c6aa" opacity="0.15500000000000003"/><rect x="368" y="577" width="34" height="53" fill="#d4c6aa" opacity="0.08"/><rect x="440" y="568" width="34" height="62" fill="#d4c6aa" opacity="0.10500000000000001"/><rect x="512" y="579" width="34" height="51" fill="#d4c6aa" opacity="0.13"/><rect x="584" y="569" width="34" height="61" fill="#d4c6aa" opacity="0.15500000000000003"/><rect x="656" y="564" width="34" height="66" fill="#d4c6aa" opacity="0.08"/><rect x="728" y="561" width="34" height="69" fill="#d4c6aa" opacity="0.10500000000000001"/><rect x="800" y="560" width="34" height="70" fill="#d4c6aa" opacity="0.13"/><rect x="872" y="559" width="34" height="71" fill="#d4c6aa" opacity="0.15500000000000003"/><rect x="944" y="559" width="34" height="71" fill="#d4c6aa" opacity="0.08"/><rect x="1016" y="559" width="34" height="71" fill="#d4c6aa" opacity="0.10500000000000001"/><rect x="1088" y="559" width="34" height="71" fill="#d4c6aa" opacity="0.13"/><rect x="1160" y="559" width="34" height="71" fill="#d4c6aa" opacity="0.15500000000000003"/>
+  
+    <path d="M260 560h720" stroke="#696150" stroke-width="16"/>
+    <path d="M620 560V240" stroke="#d4c6aa" stroke-width="14"/>
+    <circle cx="620" cy="210" r="32" fill="#d4c6aa"/>
+    <path d="M530 280q90 -100 180 0M455 340q165 -180 330 0M380 400q240 -260 480 0" fill="none" stroke="#d4c6aa" stroke-width="12" opacity="0.52"/>
+    <rect x="260" y="410" width="210" height="90" fill="#1b2328" stroke="#696150" stroke-width="5"/>
+  
+  <text x="86" y="112" fill="#d4c6aa" font-family="Pretendard, Noto Sans KR, sans-serif" font-size="26" font-weight="700" opacity="0.9">ENDING / END_A_SURVIVOR</text>
+</svg>

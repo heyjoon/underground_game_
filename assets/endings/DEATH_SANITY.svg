@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">DEATH. 성광의 아이</title>
+  <desc id="desc">Ending illustration for DOWNLINK.</desc>
+  <rect width="1280" height="720" fill="#1d1515"/>
+  <rect x="62" y="60" width="1156" height="600" rx="20" fill="#311f1f" opacity="0.42"/>
+  <path d="M80 600h1120M110 120h1060" stroke="#7d3f3f" stroke-width="3" opacity="0.5"/>
+  <rect x="80" y="590" width="34" height="40" fill="#d66b6b" opacity="0.08"/><rect x="152" y="590" width="34" height="40" fill="#d66b6b" opacity="0.10500000000000001"/><rect x="224" y="574" width="34" height="56" fill="#d66b6b" opacity="0.13"/><rect x="296" y="582" width="34" height="48" fill="#d66b6b" opacity="0.15500000000000003"/><rect x="368" y="586" width="34" height="44" fill="#d66b6b" opacity="0.08"/><rect x="440" y="572" width="34" height="58" fill="#d66b6b" opacity="0.10500000000000001"/><rect x="512" y="581" width="34" height="49" fill="#d66b6b" opacity="0.13"/><rect x="584" y="586" width="34" height="44" fill="#d66b6b" opacity="0.15500000000000003"/><rect x="656" y="588" width="34" height="42" fill="#d66b6b" opacity="0.08"/><rect x="728" y="573" width="34" height="57" fill="#d66b6b" opacity="0.10500000000000001"/><rect x="800" y="582" width="34" height="48" fill="#d66b6b" opacity="0.13"/><rect x="872" y="570" width="34" height="60" fill="#d66b6b" opacity="0.15500000000000003"/><rect x="944" y="580" width="34" height="50" fill="#d66b6b" opacity="0.08"/><rect x="1016" y="585" width="34" height="45" fill="#d66b6b" opacity="0.10500000000000001"/><rect x="1088" y="588" width="34" height="42" fill="#d66b6b" opacity="0.13"/><rect x="1160" y="589" width="34" height="41" fill="#d66b6b" opacity="0.15500000000000003"/>
+  
+    <path d="M330 470c40 -160 120 -240 280 -240s240 98 240 220c0 110 -96 160 -226 160h-220c-62 0 -90 -50 -74 -140z" fill="#311f1f" stroke="#d66b6b" stroke-width="7"/>
+    <path d="M440 330c70 28 150 28 230 0M440 420c90 -34 170 -34 260 0" stroke="#7d3f3f" stroke-width="12" fill="none" opacity="0.82"/>
+    <path d="M900 240q120 110 0 220M955 195q190 160 0 330" stroke="#d66b6b" stroke-width="10" fill="none" opacity="0.45"/>
+  
+  <text x="86" y="112" fill="#d66b6b" font-family="Pretendard, Noto Sans KR, sans-serif" font-size="26" font-weight="700" opacity="0.9">ENDING / DEATH_SANITY</text>
+</svg>

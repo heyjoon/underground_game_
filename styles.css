@@ -168,9 +168,26 @@ h1 span {
 
 .event {
   align-self: center;
-  width: min(820px, calc(100% - 56px));
+  width: min(900px, calc(100% - 56px));
   margin: 0 auto;
   padding: 42px 0;
+}
+
+.scene-figure {
+  margin: 0 0 28px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #111316;
+}
+
+.scene-figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 h2 {
@@ -212,7 +229,19 @@ h2 {
 }
 
 .character-choice {
-  gap: 8px;
+  grid-template-columns: 150px 1fr;
+  gap: 8px 16px;
+  align-items: start;
+}
+
+.character-image {
+  grid-row: span 5;
+  width: 150px;
+  aspect-ratio: 1.72 / 1;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #111316;
 }
 
 .character-choice small {
@@ -249,11 +278,24 @@ h2 {
     padding: 34px 0;
   }
 
+  .scene-figure {
+    margin-bottom: 22px;
+  }
+
   h2 {
     font-size: 28px;
   }
 
   .event-text {
     font-size: 16px;
+  }
+
+  .character-choice {
+    grid-template-columns: 1fr;
+  }
+
+  .character-image {
+    grid-row: auto;
+    width: 100%;
   }
 }

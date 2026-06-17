@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">강태오 END. 독재 질서</title>
+  <desc id="desc">Ending illustration for DOWNLINK.</desc>
+  <rect width="1280" height="720" fill="#111417"/>
+  <rect x="62" y="60" width="1156" height="600" rx="20" fill="#1b2328" opacity="0.42"/>
+  <path d="M80 600h1120M110 120h1060" stroke="#696150" stroke-width="3" opacity="0.5"/>
+  <rect x="80" y="560" width="34" height="70" fill="#d4c6aa" opacity="0.08"/><rect x="152" y="559" width="34" height="71" fill="#d4c6aa" opacity="0.10500000000000001"/><rect x="224" y="575" width="34" height="55" fill="#d4c6aa" opacity="0.13"/><rect x="296" y="583" width="34" height="47" fill="#d4c6aa" opacity="0.15500000000000003"/><rect x="368" y="571" width="34" height="59" fill="#d4c6aa" opacity="0.08"/><rect x="440" y="581" width="34" height="49" fill="#d4c6aa" opacity="0.10500000000000001"/><rect x="512" y="570" width="34" height="60" fill="#d4c6aa" opacity="0.13"/><rect x="584" y="564" width="34" height="66" fill="#d4c6aa" opacity="0.15500000000000003"/><rect x="656" y="561" width="34" height="69" fill="#d4c6aa" opacity="0.08"/><rect x="728" y="576" width="34" height="54" fill="#d4c6aa" opacity="0.10500000000000001"/><rect x="800" y="583" width="34" height="47" fill="#d4c6aa" opacity="0.13"/><rect x="872" y="571" width="34" height="59" fill="#d4c6aa" opacity="0.15500000000000003"/><rect x="944" y="565" width="34" height="65" fill="#d4c6aa" opacity="0.08"/><rect x="1016" y="562" width="34" height="68" fill="#d4c6aa" opacity="0.10500000000000001"/><rect x="1088" y="576" width="34" height="54" fill="#d4c6aa" opacity="0.13"/><rect x="1160" y="567" width="34" height="63" fill="#d4c6aa" opacity="0.15500000000000003"/>
+  
+    <rect x="170" y="178" width="760" height="280" rx="8" fill="#1b2328" stroke="#696150" stroke-width="4"/>
+    <path d="M220 250h660M220 330h660M220 410h660" stroke="#696150" stroke-width="5" opacity="0.7"/>
+    <rect x="250" y="470" width="120" height="80" fill="#d4c6aa" opacity="0.82"/>
+    <rect x="400" y="490" width="150" height="60" fill="#d4c6aa" opacity="0.52"/>
+    <circle cx="290" cy="520" r="15" fill="#d4c6aa" opacity="0.9"/><path d="M268 568q22 -28 44 0v62h-44z" fill="#d4c6aa" opacity="0.6"/><circle cx="356" cy="520" r="15" fill="#d4c6aa" opacity="0.9"/><path d="M334 568q22 -28 44 0v62h-44z" fill="#d4c6aa" opacity="0.6"/><circle cx="422" cy="520" r="15" fill="#d4c6aa" opacity="0.9"/><path d="M400 568q22 -28 44 0v62h-44z" fill="#d4c6aa" opacity="0.6"/><circle cx="488" cy="520" r="15" fill="#d4c6aa" opacity="0.9"/><path d="M466 568q22 -28 44 0v62h-44z" fill="#d4c6aa" opacity="0.6"/>
+  
+  <text x="86" y="112" fill="#d4c6aa" font-family="Pretendard, Noto Sans KR, sans-serif" font-size="26" font-weight="700" opacity="0.9">ENDING / TAEO_ORDER</text>
+</svg>

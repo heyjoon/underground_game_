@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">마흔 번째 문</title>
+  <desc id="desc">STORY event illustration for DOWNLINK.</desc>
+  <rect width="1280" height="720" fill="#121b1d"/>
+  <rect x="72" y="70" width="1136" height="580" rx="18" fill="#1e3031" opacity="0.38"/>
+  <path d="M0 640h1280M0 112h1280M88 0v720M1192 0v720" stroke="#3e746e" stroke-width="2" opacity="0.34"/>
+  <rect x="80" y="589" width="34" height="41" fill="#76c7b7" opacity="0.08"/><rect x="152" y="590" width="34" height="40" fill="#76c7b7" opacity="0.10500000000000001"/><rect x="224" y="574" width="34" height="56" fill="#76c7b7" opacity="0.13"/><rect x="296" y="582" width="34" height="48" fill="#76c7b7" opacity="0.15500000000000003"/><rect x="368" y="586" width="34" height="44" fill="#76c7b7" opacity="0.08"/><rect x="440" y="588" width="34" height="42" fill="#76c7b7" opacity="0.10500000000000001"/><rect x="512" y="573" width="34" height="57" fill="#76c7b7" opacity="0.13"/><rect x="584" y="582" width="34" height="48" fill="#76c7b7" opacity="0.15500000000000003"/><rect x="656" y="570" width="34" height="60" fill="#76c7b7" opacity="0.08"/><rect x="728" y="580" width="34" height="50" fill="#76c7b7" opacity="0.10500000000000001"/><rect x="800" y="569" width="34" height="61" fill="#76c7b7" opacity="0.13"/><rect x="872" y="580" width="34" height="50" fill="#76c7b7" opacity="0.15500000000000003"/><rect x="944" y="585" width="34" height="45" fill="#76c7b7" opacity="0.08"/><rect x="1016" y="572" width="34" height="58" fill="#76c7b7" opacity="0.10500000000000001"/><rect x="1088" y="565" width="34" height="65" fill="#76c7b7" opacity="0.13"/><rect x="1160" y="578" width="34" height="52" fill="#76c7b7" opacity="0.15500000000000003"/>
+  
+    <path d="M450 610V150h330v460" fill="#1e3031" stroke="#76c7b7" stroke-width="8"/>
+    <path d="M515 610V220h200v390" fill="#121b1d" stroke="#3e746e" stroke-width="6"/>
+    <circle cx="684" cy="412" r="12" fill="#76c7b7"/>
+    <path d="M220 610h780M390 610l60 -460M840 610l-60 -460" stroke="#3e746e" stroke-width="10" opacity="0.7"/>
+  
+  <rect x="0" y="0" width="1280" height="720" fill="none" stroke="#76c7b7" stroke-width="10" opacity="0.18"/>
+  <text x="86" y="112" fill="#76c7b7" font-family="Pretendard, Noto Sans KR, sans-serif" font-size="26" font-weight="700" opacity="0.9">STORY / T40</text>
+</svg>

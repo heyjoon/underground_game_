@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">이하린</title>
+  <desc id="desc">지하 배달꾼 / 길잡이 character portrait for DOWNLINK.</desc>
+  <rect width="900" height="520" fill="#111416"/>
+  <rect x="44" y="42" width="812" height="436" rx="16" fill="#1a2226" opacity="0.52"/>
+  <g transform="translate(-190 -120) scale(0.86)">
+    
+    <path d="M450 610V150h330v460" fill="#1a2226" stroke="#91a8c2" stroke-width="8"/>
+    <path d="M515 610V220h200v390" fill="#111416" stroke="#3a6661" stroke-width="6"/>
+    <circle cx="684" cy="412" r="12" fill="#91a8c2"/>
+    <path d="M220 610h780M390 610l60 -460M840 610l-60 -460" stroke="#3a6661" stroke-width="10" opacity="0.7"/>
+  
+  </g>
+  <rect x="0" y="0" width="900" height="520" fill="none" stroke="#91a8c2" stroke-width="8" opacity="0.22"/>
+  <text x="52" y="78" fill="#91a8c2" font-family="Pretendard, Noto Sans KR, sans-serif" font-size="20" font-weight="700">ROUTE FINDER</text>
+  <text x="52" y="432" fill="#f1eee6" font-family="Pretendard, Noto Sans KR, sans-serif" font-size="38" font-weight="800">이하린</text>
+</svg>

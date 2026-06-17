@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">생존자 선택</title>
+  <desc id="desc">Character selection illustration for DOWNLINK.</desc>
+  <rect width="1280" height="720" fill="#121b1d"/>
+  <path d="M170 610L450 170h380l280 440z" fill="#1e3031" stroke="#3e746e" stroke-width="8"/>
+  <path d="M320 600V240M640 610V180M960 600V240" stroke="#76c7b7" stroke-width="13" opacity="0.48"/>
+  <circle cx="320" cy="220" r="44" fill="#8fc779" opacity="0.75"/>
+  <circle cx="640" cy="160" r="44" fill="#d66b6b" opacity="0.75"/>
+  <circle cx="960" cy="220" r="44" fill="#91a8c2" opacity="0.75"/>
+  <path d="M250 610h780" stroke="#3e746e" stroke-width="20"/>
+  <text x="86" y="112" fill="#76c7b7" font-family="Pretendard, Noto Sans KR, sans-serif" font-size="26" font-weight="700">SELECT / SURVIVOR</text>
+</svg>
