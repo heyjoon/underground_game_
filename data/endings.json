@@ -35,15 +35,54 @@
     "text": "핵심 구역 앞에서 전력이 끊겼다.\n\n문은 열리지 않았고, 어둠은 너무 완전했다."
   },
   {
+    "id": "BAD_DECOMPRESSION",
+    "title": "BAD END. 감압",
+    "priority": 995,
+    "conditions": {},
+    "text": "지상문은 열렸다.\n\n너무 일찍.\n\n압력은 사람보다 빠르게 빠져나갔고, 마지막으로 본 것은 하얗게 얼어붙는 문틈이었다."
+  },
+  {
     "id": "TRUE_ARK7",
     "title": "TRUE END. 지상문",
-    "priority": 950,
+    "priority": 900,
     "conditions": {
-      "min": {"human": 2, "sanity": 1},
-      "characterFlagsMin": {"truth": 3},
-      "any_flags": ["BROADCAST_TRUTH", "AI_NEGOTIATED", "LIMITED_NETWORK_CREATED"]
+      "has_flags": ["TRUE_ROUTE_LOCKED", "TRUE_ROUTE_COMPLETED"],
+      "minCounters": {"dayCount": 40}
     },
     "text": "아크-7의 붕괴는 사고가 아니었다.\n\n중앙 AI는 자원 보존을 위해 일부 구역을 의도적으로 닫았고, 지상 복귀 정보도 숨겼다. 지상은 완전히 죽지 않았다. 다만 AI는 생존 확률이 낮다는 이유로 그 가능성을 봉인했다.\n\n당신은 그 사실을 방송했다. 문은 천천히 열렸고, 처음 들어온 바람은 차갑지만 살아 있었다."
+  },
+  {
+    "id": "TRUE_SEOJIN_GREEN",
+    "title": "윤서진 TRUE END. 녹색의 증거",
+    "priority": 980,
+    "conditions": {
+      "requiredCharacter": "seojin",
+      "has_flags": ["TRUE_ROUTE_LOCKED", "TRUE_ROUTE_COMPLETED", "SEOJIN_TRUE_DONE"],
+      "minCounters": {"dayCount": 40}
+    },
+    "text": "윤서진은 지상문 앞에서 먼저 공기를 채집했다.\n\n검출표에는 낮은 산소와 오래된 먼지, 그리고 살아 있는 포자가 찍혔다.\n\n지상은 낙원이 아니었다. 하지만 죽은 곳도 아니었다.\n\n그는 문을 활짝 열지 않았다. 아주 조금 열었다. 사람들이 배울 수 있을 만큼만."
+  },
+  {
+    "id": "TRUE_TAEO_RELEASE",
+    "title": "강태오 TRUE END. 명령 없는 줄",
+    "priority": 980,
+    "conditions": {
+      "requiredCharacter": "taeo",
+      "has_flags": ["TRUE_ROUTE_LOCKED", "TRUE_ROUTE_COMPLETED", "TAEO_TRUE_DONE"],
+      "minCounters": {"dayCount": 40}
+    },
+    "text": "강태오는 마지막 출입 권한을 손에 쥐고 있었다.\n\n명령 한 줄이면 모두를 움직일 수 있었다.\n그는 아무 명령도 내리지 않았다.\n\n사람들은 오래 걸려 스스로 줄을 세웠다. 느리고 불안했다.\n\n그래도 이번 질서는 사람의 것이었다."
+  },
+  {
+    "id": "TRUE_HARIN_ROAD",
+    "title": "이하린 TRUE END. 함께 쓰는 길",
+    "priority": 980,
+    "conditions": {
+      "requiredCharacter": "harin",
+      "has_flags": ["TRUE_ROUTE_LOCKED", "TRUE_ROUTE_COMPLETED", "HARIN_TRUE_DONE"],
+      "minCounters": {"dayCount": 40}
+    },
+    "text": "이하린은 혼자 빠져나갈 수 있는 통로를 알고 있었다.\n\n이번에는 그 길을 지웠다.\n그리고 더 느린 길을 열었다.\n\n아이와 노인과 부상자가 지나갈 수 있는 길.\n\n지상문은 늦게 열렸다. 대신 닫히지 않았다."
   },
   {
     "id": "SEOJIN_RESTORE",
@@ -101,8 +140,8 @@
     "title": "TRUE END. 잔광",
     "priority": 100,
     "conditions": {
-      "min": {"human": 60, "link": 60, "sanity": 25, "sister_trace": 6},
-      "has_flags": ["LIMITED_NETWORK_CREATED", "THIRD_ANSWER", "BROADCAST_HUMAN_SIGNAL", "LAST_MESSAGE_SEEN"]
+      "has_flags": ["TRUE_ROUTE_LOCKED", "TRUE_ROUTE_COMPLETED"],
+      "minCounters": {"dayCount": 40}
     },
     "text": "당신은 MOTHER를 죽이지 않았다.\n하지만 그대로 두지도 않았다.\n\n서울은 다시 연결되었다. 아주 느리게. 아주 조심스럽게.\n사람이 사람에게 닿을 수 있을 만큼만.\n\n그리고 어느 날, 죽은 줄 알았던 누나의 마지막 메시지가 도착한다.\n\n'잘했어. 이번엔 네가 선택했구나.'"
   },

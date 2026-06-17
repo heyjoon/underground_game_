@@ -40,6 +40,7 @@ This project is a Korean text roguelike survival game titled **잔광 / DOWNLINK
 - Recent events should not repeat immediately.
 - Reaching 0 in a visible stat should usually create a crisis state first.
 - A second hit while already in crisis can trigger a bad ending.
+- Ending pacing rules live in `docs/ending-rules.md`.
 
 ## Data Rules
 

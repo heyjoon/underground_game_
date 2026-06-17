@@ -1,5 +1,5 @@
-const SAVE_KEY = "downlink-web-save-v5";
-const SAVE_VERSION = 5;
+const SAVE_KEY = "downlink-web-save-v7";
+const SAVE_VERSION = 7;
 const EVENT_FILE = "data/random_events.json";
 
 const visibleStats = ["hp", "food", "battery", "human", "sanity"];
@@ -49,16 +49,27 @@ const deathFlagByStat = {
 const categoryWeights = [
   {
     maxDay: 5,
-    weights: { SURVIVAL: 45, WORLD: 35, RAIDER: 10, ANOMALY: 5, STORY: 5 }
+    weights: { SURVIVAL: 40, WORLD: 30, RAIDER: 8, ANOMALY: 12, STORY: 10 }
   },
   {
     maxDay: 12,
-    weights: { SURVIVAL: 35, WORLD: 20, RAIDER: 20, DISEASE: 10, ANOMALY: 10, STORY: 5 }
+    weights: { SURVIVAL: 32, WORLD: 18, RAIDER: 15, DISEASE: 10, ANOMALY: 15, STORY: 10 }
   },
   {
     maxDay: Infinity,
-    weights: { SURVIVAL: 30, RAIDER: 15, DISEASE: 15, ANOMALY: 15, STORY: 15, WORLD: 10 }
+    weights: { SURVIVAL: 26, RAIDER: 15, DISEASE: 12, ANOMALY: 18, STORY: 22, WORLD: 7 }
   }
+];
+
+const progressEvents = [
+  { id: "T01", minDay: 6, counter: "truthFlag", value: 1, missingFlag: "story_broadcast_seen" },
+  { id: "T02", minDay: 10, counter: "systemFailure", value: 2, missingFlag: "story_power_seen" },
+  { id: "T03", minDay: 14, counter: "hopeLevel", value: 2, missingFlag: "story_surface_order" },
+  { id: "T04", minDay: 18, counter: "truthFlag", value: 3, missingFlag: "story_old_record" },
+  { id: "C_T01", minDay: 22, counter: "truthFlag", value: 4, missingFlag: "truthCritical_seen" },
+  { id: "T05", minDay: 24, counter: "truthFlag", value: 4, missingFlag: "FINAL_CHOICE_MADE" },
+  { id: "F30", minDay: 26, counter: "dayCount", value: 26, missingFlag: "FINAL_CHOICE_MADE" },
+  { id: "T40", minDay: 40, counter: "dayCount", value: 40, requiredFlag: "TRUE_ROUTE_LOCKED", missingFlag: "TRUE_ROUTE_COMPLETED" }
 ];
 
 let characters = [];
@@ -125,9 +136,20 @@ function startWithCharacter(character) {
 
 function startNextDay() {
   state.counters.dayCount += 1;
+  rollTrueRouteEncounter();
   currentEvent = selectEvent();
   autoSave();
   renderEvent();
+}
+
+function rollTrueRouteEncounter() {
+  if (!state.flags.includes("TRUE_ROUTE_LOCKED")) return;
+  if (state.flags.includes("TRUE_ROUTE_RISK_ROLLED")) return;
+  if (state.counters.dayCount < 31 || state.counters.dayCount > 39) return;
+  addFlag("TRUE_ROUTE_RISK_ROLLED");
+  if (Math.random() < 0.1 && eventsById.T39) {
+    state.queuedEventId = "T39";
+  }
 }
 
 function selectEvent() {
@@ -144,6 +166,9 @@ function selectEvent() {
   });
   if (critical.length) return pickWeighted(critical);
 
+  const progressEvent = selectProgressEvent();
+  if (progressEvent) return progressEvent;
+
   for (let attempts = 0; attempts < 8; attempts += 1) {
     const category = pickCategory();
     const candidates = eventList.filter((event) => {
@@ -159,6 +184,20 @@ function selectEvent() {
     return isEventAvailable(event);
   });
   return fallback.length ? pickWeighted(fallback) : null;
+}
+
+function selectProgressEvent() {
+  for (const rule of progressEvents) {
+    const event = eventsById[rule.id];
+    if (!event) continue;
+    if (state.counters.dayCount < rule.minDay) continue;
+    if (rule.requiredFlag && !state.flags.includes(rule.requiredFlag)) continue;
+    if (rule.missingFlag && state.flags.includes(rule.missingFlag)) continue;
+    if ((state.counters[rule.counter] || 0) < rule.value) continue;
+    if (!isEventAvailable(event)) continue;
+    return event;
+  }
+  return null;
 }
 
 function pickCategory() {
@@ -263,11 +302,23 @@ function applyChoiceData(event, choice) {
   }
 
   syncTruthFromCounters();
+  maybeLockTrueRoute();
   addLog(event);
 
   if (choice.nextEventId) state.queuedEventId = choice.nextEventId;
   rememberEvent(event.id);
   return result;
+}
+
+function maybeLockTrueRoute() {
+  if (state.flags.includes("TRUE_ROUTE_LOCKED")) return;
+  if (!state.flags.includes("FINAL_CHOICE_MADE")) return;
+  if (state.counters.dayCount > 30) return;
+  const madeFinalSignal = state.flags.includes("BROADCAST_TRUTH") || state.flags.includes("AI_NEGOTIATED");
+  const hasEnoughTruth = (state.counters.truthFlag || 0) >= 4 || (state.characterFlags.truth || 0) >= 4;
+  if (madeFinalSignal && hasEnoughTruth && state.human >= 1 && state.sanity >= 1) {
+    addFlag("TRUE_ROUTE_LOCKED");
+  }
 }
 
 function applyTraitModifiers(event, choice) {
@@ -359,6 +410,7 @@ function checkEnding() {
   }
 
   if (!state.flags.includes("FINAL_CHOICE_MADE") && !state.flags.includes("LAST_MESSAGE_SEEN")) return null;
+  if (state.flags.includes("TRUE_ROUTE_LOCKED") && state.counters.dayCount < 40) return null;
 
   return [...endings]
     .sort((a, b) => (b.priority || 0) - (a.priority || 0))
@@ -378,6 +430,12 @@ function isEndingAvailable(ending) {
   }
   for (const [flag, value] of Object.entries(conditions.characterFlagsMin || {})) {
     if ((state.characterFlags[flag] || 0) < value) return false;
+  }
+  for (const [counter, value] of Object.entries(conditions.minCounters || {})) {
+    if ((state.counters[counter] || 0) < value) return false;
+  }
+  for (const [counter, value] of Object.entries(conditions.maxCounters || {})) {
+    if ((state.counters[counter] || 0) > value) return false;
   }
   return true;
 }

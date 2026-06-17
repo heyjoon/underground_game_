@@ -34,7 +34,7 @@ http://127.0.0.1:4180/
   - 배터리
   - 인간성
   - 정신
-- Daily play is driven by random events, with LIGHT events mixed in to keep small moments of warmth alive.
+- Daily play is driven by random survival, world, raider, disease, anomaly, story, and critical events.
 - Hidden counters drive tension and CRITICAL events.
 - Main story appears conditionally, not every day.
 - Unavailable choices are hidden.
@@ -55,6 +55,7 @@ data/
 docs/
   story.md
   events.md
+  ending-rules.md
   git-setup.md
 AGENTS.md
 ```
@@ -75,7 +76,7 @@ Start day
 -> next day
 ```
 
-Current random event count: 70.
+Current random event count: 56.
 
 ## Development Notes
 
@@ -84,6 +85,7 @@ Read these before continuing work:
 - [AGENTS.md](AGENTS.md)
 - [docs/story.md](docs/story.md)
 - [docs/events.md](docs/events.md)
+- [docs/ending-rules.md](docs/ending-rules.md)
 - [docs/git-setup.md](docs/git-setup.md)
 
 ## Smoke Checks

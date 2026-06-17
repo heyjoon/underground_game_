@@ -21,7 +21,6 @@ Start day
 - `STORY`: Main-story fragments. Rare and conditional.
 - `SURVIVAL`: Food, oxygen, health, parts, power.
 - `WORLD`: Low-impact world texture and era detail.
-- `LIGHT`: Small warmth, humor, and fragile hope with occasional resource cost.
 - `RAIDER`: Human threat, mostly indirect pressure.
 - `DISEASE`: Infection, quarantine, bad water, medicine shortage.
 - `ANOMALY`: Mystery and true-ending clues.
@@ -31,32 +30,29 @@ Start day
 
 ### Days 1-5
 
-- SURVIVAL 35
-- WORLD 25
-- LIGHT 20
+- SURVIVAL 40
+- WORLD 30
 - RAIDER 8
-- ANOMALY 7
-- STORY 5
+- ANOMALY 12
+- STORY 10
 
 ### Days 6-12
 
 - SURVIVAL 32
 - WORLD 18
-- LIGHT 12
 - RAIDER 15
 - DISEASE 10
-- ANOMALY 8
-- STORY 5
+- ANOMALY 15
+- STORY 10
 
 ### Days 13+
 
-- SURVIVAL 28
+- SURVIVAL 26
 - RAIDER 15
-- DISEASE 13
-- ANOMALY 14
-- STORY 15
+- DISEASE 12
+- ANOMALY 18
+- STORY 22
 - WORLD 7
-- LIGHT 8
 
 RAIDER should stay at 15% late-game. Raiders are not random mobs; they are pressure that accumulates into disaster.
 
@@ -80,7 +76,7 @@ RAIDER should stay at 15% late-game. Raiders are not random mobs; they are press
 - `diseaseThreat >= 6`: quarantine closure or infection spread
 - `hungerPressure >= 6`: ration riot
 - `oxygenPressure >= 6`: oxygen purification failure
-- `truthFlag >= 5`: world truth / true-ending clue
+- `truthFlag >= 4`: world truth / true-ending clue
 
 After a CRITICAL event:
 
@@ -133,11 +129,10 @@ Events live in `data/random_events.json`.
 
 - SURVIVAL: 12
 - WORLD: 12
-- LIGHT: 16
 - RAIDER: 7
 - DISEASE: 5
-- ANOMALY: 6
-- STORY: 5
-- CRITICAL: 7
+- ANOMALY: 5
+- STORY: 7
+- CRITICAL: 8
 
-Total: 70 events.
+Total: 56 events.
