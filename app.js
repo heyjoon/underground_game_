@@ -1,5 +1,5 @@
-const SAVE_KEY = "downlink-web-save-v7";
-const SAVE_VERSION = 7;
+const SAVE_KEY = "downlink-web-save-v8";
+const SAVE_VERSION = 8;
 const EVENT_FILE = "data/random_events.json";
 
 const visibleStats = ["hp", "food", "battery", "human", "sanity"];
@@ -80,6 +80,15 @@ let state = newState();
 let currentEvent = null;
 let previewStats = null;
 
+function incidentRandom() {
+  if (globalThis.crypto?.getRandomValues) {
+    const values = new Uint32Array(1);
+    globalThis.crypto.getRandomValues(values);
+    return values[0] / 4294967296;
+  }
+  return Math.random();
+}
+
 const el = {
   stats: document.querySelector("#stats"),
   itemsPanel: document.querySelector("#itemsPanel"),
@@ -103,6 +112,7 @@ function newState() {
     crisis: [],
     recentEvents: [],
     queuedEventId: null,
+    trueRouteRiskDay: null,
     counters: structuredClone(baseCounters),
     characterFlags: structuredClone(baseCharacterFlags),
     logs: {
@@ -144,12 +154,13 @@ function startNextDay() {
 
 function rollTrueRouteEncounter() {
   if (!state.flags.includes("TRUE_ROUTE_LOCKED")) return;
-  if (state.flags.includes("TRUE_ROUTE_RISK_ROLLED")) return;
   if (state.counters.dayCount < 31 || state.counters.dayCount > 39) return;
+  if (!state.trueRouteRiskDay) return;
+  if (state.counters.dayCount !== state.trueRouteRiskDay) return;
+  if (state.flags.includes("TRUE_ROUTE_RISK_ROLLED")) return;
   addFlag("TRUE_ROUTE_RISK_ROLLED");
-  if (Math.random() < 0.1 && eventsById.T39) {
-    state.queuedEventId = "T39";
-  }
+  addFlag("TRUE_ROUTE_RISK_ACTIVE");
+  if (eventsById.T39) state.queuedEventId = "T39";
 }
 
 function selectEvent() {
@@ -159,6 +170,9 @@ function selectEvent() {
     return queued;
   }
 
+  const progressEvent = selectProgressEvent();
+  if (progressEvent?.id === "T40") return progressEvent;
+
   const critical = eventList.filter((event) => {
     if (event.category !== "CRITICAL") return false;
     if (state.recentEvents.includes(event.id)) return false;
@@ -166,7 +180,6 @@ function selectEvent() {
   });
   if (critical.length) return pickWeighted(critical);
 
-  const progressEvent = selectProgressEvent();
   if (progressEvent) return progressEvent;
 
   for (let attempts = 0; attempts < 8; attempts += 1) {
@@ -316,8 +329,9 @@ function maybeLockTrueRoute() {
   if (state.counters.dayCount > 30) return;
   const madeFinalSignal = state.flags.includes("BROADCAST_TRUTH") || state.flags.includes("AI_NEGOTIATED");
   const hasEnoughTruth = (state.counters.truthFlag || 0) >= 4 || (state.characterFlags.truth || 0) >= 4;
-  if (madeFinalSignal && hasEnoughTruth && state.human >= 1 && state.sanity >= 1) {
+  if (madeFinalSignal && hasEnoughTruth && state.human >= 1) {
     addFlag("TRUE_ROUTE_LOCKED");
+    state.trueRouteRiskDay = incidentRandom() < 0.1 ? 31 + Math.floor(incidentRandom() * 9) : null;
   }
 }
 
@@ -352,6 +366,7 @@ function applyStatChange(stat, delta, result) {
   if (delta < 0 && state[stat] <= 0) {
     const crisisFlag = crisisFlagByStat[stat];
     if (crisisFlag && state.crisis.includes(crisisFlag)) {
+      if (state.flags.includes("TRUE_ROUTE_LOCKED") && state.counters.dayCount < 40) return;
       addFlag(deathFlagByStat[stat]);
       result.fatal = stat;
       return;
@@ -590,6 +605,7 @@ function loadSavedGame() {
   state.counters = { ...baseCounters, ...(state.counters || {}) };
   state.characterFlags = { ...baseCharacterFlags, ...(state.characterFlags || {}) };
   state.logs = state.logs || { survival: [], world: [], story: [], anomaly: [] };
+  state.trueRouteRiskDay = state.trueRouteRiskDay || null;
   currentEvent = loaded.currentEventId ? eventsById[loaded.currentEventId] || null : null;
 }
 

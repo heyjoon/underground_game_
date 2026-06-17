@@ -56,6 +56,7 @@ docs/
   story.md
   events.md
   ending-rules.md
+  playtest-results.md
   git-setup.md
 AGENTS.md
 ```
@@ -86,6 +87,7 @@ Read these before continuing work:
 - [docs/story.md](docs/story.md)
 - [docs/events.md](docs/events.md)
 - [docs/ending-rules.md](docs/ending-rules.md)
+- [docs/playtest-results.md](docs/playtest-results.md)
 - [docs/git-setup.md](docs/git-setup.md)
 
 ## Smoke Checks
