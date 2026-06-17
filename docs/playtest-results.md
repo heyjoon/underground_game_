@@ -141,3 +141,106 @@ Next tuning target, if needed:
 - reduce early `BAD_MADNESS` in random play
 - add more character-specific safe choices
 - make non-true endings more varied than `END_A_SURVIVOR`
+
+## 2026-06-17 Difficulty Pass
+
+User feedback:
+
+```text
+잘 안 깨진다. 좀 어렵다.
+```
+
+Changes:
+
+- Ordinary ending gate moved earlier from day 26 to day 24.
+- `F30` title changed from `서른 번째 아침` to `닫히기 전의 문`.
+- `T04 구세대 기록` now appears from `truthFlag >= 2`.
+- Early fatal grace added:
+  - before or on day 24
+  - before final choice
+  - the first fatal second-hit is hidden once
+- True ending still requires `truthFlag >= 4`, so normal clears are easier without making true ending completely free.
+
+### 100 Runs After Adjustment
+
+#### Random Player
+
+- Total: 100
+- Average ending day: 30.88
+- True route locked: 57
+- Character true endings: 47
+- Bad endings: 31
+- Within 30 days: 43
+
+Ending spread:
+
+- `TRUE_HARIN_ROAD`: 18
+- `TRUE_TAEO_RELEASE`: 13
+- `TRUE_SEOJIN_GREEN`: 16
+- `END_A_SURVIVOR`: 11
+- `END_D_MANAGER`: 3
+- `END_E_RECONNECT`: 8
+- `BAD_DECOMPRESSION`: 9
+- `BAD_MADNESS`: 18
+- `BAD_COLLAPSE`: 4
+
+#### Survival Player
+
+- Total: 100
+- Average ending day: 29.03
+- True route locked: 31
+- Character true endings: 28
+- Bad endings: 3
+- Within 30 days: 69
+
+Ending spread:
+
+- `END_A_SURVIVOR`: 66
+- `TRUE_TAEO_RELEASE`: 10
+- `TRUE_HARIN_ROAD`: 10
+- `TRUE_SEOJIN_GREEN`: 8
+- `BAD_DECOMPRESSION`: 3
+- `END_D_MANAGER`: 2
+- `END_E_RECONNECT`: 1
+
+#### Truth-Seeking Player
+
+- Total: 100
+- Average ending day: 34.13
+- True route locked: 66
+- Character true endings: 58
+- Bad endings: 9
+- Within 30 days: 34
+
+Ending spread:
+
+- `TRUE_HARIN_ROAD`: 23
+- `TRUE_SEOJIN_GREEN`: 18
+- `TRUE_TAEO_RELEASE`: 17
+- `END_A_SURVIVOR`: 33
+- `BAD_DECOMPRESSION`: 8
+- `BAD_HUNGER`: 1
+
+### Read
+
+This pass makes the game much easier to clear without removing risk:
+
+- Survival-style play now almost always reaches an ending.
+- Random play still has meaningful failure, but no longer dies as often before seeing the game structure.
+- True ending remains accessible when the player follows clues, but it is not fully guaranteed.
+
+### 1000 Run Random Confidence Check
+
+- Total: 1000
+- Average ending day: 30.43
+- Character true endings: 478
+- Ordinary non-bad endings: 201
+- Bad endings: 321
+- True route locked: 541
+- Within 30 days: 459
+
+Compared to the previous random 1000-run check:
+
+- Bad endings dropped from 527 to 321.
+- Character true endings rose from 354 to 478.
+- Average ending day moved from 26.45 to 30.43.

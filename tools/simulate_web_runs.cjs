@@ -48,10 +48,10 @@ const progressEvents = [
   { id: "T01", minDay: 6, counter: "truthFlag", value: 1, missingFlag: "story_broadcast_seen" },
   { id: "T02", minDay: 10, counter: "systemFailure", value: 2, missingFlag: "story_power_seen" },
   { id: "T03", minDay: 14, counter: "hopeLevel", value: 2, missingFlag: "story_surface_order" },
-  { id: "T04", minDay: 18, counter: "truthFlag", value: 3, missingFlag: "story_old_record" },
-  { id: "C_T01", minDay: 22, counter: "truthFlag", value: 4, missingFlag: "truthCritical_seen" },
-  { id: "T05", minDay: 24, counter: "truthFlag", value: 4, missingFlag: "FINAL_CHOICE_MADE" },
-  { id: "F30", minDay: 26, counter: "dayCount", value: 26, missingFlag: "FINAL_CHOICE_MADE" },
+  { id: "T04", minDay: 18, counter: "truthFlag", value: 2, missingFlag: "story_old_record" },
+  { id: "C_T01", minDay: 21, counter: "truthFlag", value: 4, missingFlag: "truthCritical_seen" },
+  { id: "T05", minDay: 23, counter: "truthFlag", value: 4, missingFlag: "FINAL_CHOICE_MADE" },
+  { id: "F30", minDay: 24, counter: "dayCount", value: 24, missingFlag: "FINAL_CHOICE_MADE" },
   { id: "T40", minDay: 40, counter: "dayCount", value: 40, requiredFlag: "TRUE_ROUTE_LOCKED", missingFlag: "TRUE_ROUTE_COMPLETED" }
 ];
 
@@ -340,6 +340,10 @@ function applyStatChange(state, stat, delta) {
   if (delta < 0 && state[stat] <= 0) {
     const crisisFlag = crisisFlagByStat[stat];
     if (crisisFlag && state.crisis.includes(crisisFlag)) {
+      if (!state.flags.includes("FINAL_CHOICE_MADE") && state.counters.dayCount <= 24 && !state.flags.includes("EARLY_FATAL_GRACE_USED")) {
+        addFlag(state, "EARLY_FATAL_GRACE_USED");
+        return;
+      }
       if (state.flags.includes("TRUE_ROUTE_LOCKED") && state.counters.dayCount < 40) return;
       addFlag(state, deathFlagByStat[stat]);
       return;
