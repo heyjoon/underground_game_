@@ -16,7 +16,7 @@ Or run manually:
 
 ```powershell
 cd "C:\Users\yongj\Documents\New project"
-C:\Users\yongj\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe server.js
+C:\Users\yongj\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe server.cjs
 ```
 
 Open:
@@ -46,7 +46,7 @@ http://127.0.0.1:4180/
 index.html
 styles.css
 app.js
-server.js
+server.cjs
 run_web.bat
 data/
   characters.json

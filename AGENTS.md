@@ -5,7 +5,7 @@ This project is a Korean text roguelike survival game titled **잔광 / DOWNLINK
 ## Current Direction
 
 - The game is web-first.
-- Keep `index.html`, `styles.css`, `app.js`, `server.js`, and `data/*.json` runnable without external libraries.
+- Keep `index.html`, `styles.css`, `app.js`, `server.cjs`, and `data/*.json` runnable without external libraries.
 - The Python console MVP may remain as a reference, but new gameplay work should target the web version first.
 - Do not add package dependencies unless the user explicitly asks.
 
@@ -73,7 +73,7 @@ run_web.bat
 Manual:
 
 ```powershell
-C:\Users\yongj\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe server.js
+C:\Users\yongj\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe server.cjs
 ```
 
 Open:

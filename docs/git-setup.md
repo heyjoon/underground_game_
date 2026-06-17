@@ -15,7 +15,7 @@ Commit source and docs:
 - `index.html`
 - `styles.css`
 - `app.js`
-- `server.js`
+- `server.cjs`
 - `run_web.bat`
 - `data/*.json`
 - `docs/*.md`
@@ -54,5 +54,5 @@ run_web.bat
 If `run_web.bat` cannot find the bundled Codex Node path on another PC, install Node.js or edit `run_web.bat` to call:
 
 ```powershell
-node server.js
+node server.cjs
 ```
