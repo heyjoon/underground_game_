@@ -1,14 +1,13 @@
-const SAVE_KEY = "downlink-web-save-v8";
-const SAVE_VERSION = 8;
+const SAVE_KEY = "downlink-web-save-v9";
+const SAVE_VERSION = 9;
 const EVENT_FILE = "data/random_events.json";
 
-const visibleStats = ["hp", "food", "battery", "human", "sanity"];
+const visibleStats = ["hp", "food", "battery", "mind"];
 const statLabels = {
   hp: "체력",
   food: "식량",
   battery: "배터리",
-  human: "인간성",
-  sanity: "정신"
+  mind: "정신"
 };
 
 const baseCounters = {
@@ -33,17 +32,13 @@ const baseCharacterFlags = {
 };
 
 const crisisFlagByStat = {
-  hp: "crisis_hp",
-  food: "crisis_food",
-  human: "crisis_human",
-  sanity: "crisis_sanity"
+  mind: "crisis_mind"
 };
 
 const deathFlagByStat = {
   hp: "BAD_COLLAPSE",
   food: "BAD_HUNGER",
-  human: "BAD_INHUMAN",
-  sanity: "BAD_MADNESS"
+  mind: "BAD_MADNESS"
 };
 
 const categoryWeights = [
@@ -114,8 +109,7 @@ function newState() {
     hp: 1,
     food: 1,
     battery: 1,
-    human: 1,
-    sanity: 1,
+    mind: 1,
     items: [],
     flags: [],
     crisis: [],
@@ -340,7 +334,7 @@ function maybeLockTrueRoute() {
   if (state.counters.dayCount > 30) return;
   const madeFinalSignal = state.flags.includes("BROADCAST_TRUTH") || state.flags.includes("AI_NEGOTIATED");
   const hasEnoughTruth = (state.counters.truthFlag || 0) >= 4 || (state.characterFlags.truth || 0) >= 4;
-  if (madeFinalSignal && hasEnoughTruth && state.human >= 1) {
+  if (madeFinalSignal && hasEnoughTruth && state.mind >= 1) {
     addFlag("TRUE_ROUTE_LOCKED");
     state.trueRouteRiskDay = incidentRandom() < 0.08 ? 31 + Math.floor(incidentRandom() * 9) : null;
   }
@@ -359,7 +353,7 @@ function applyTraitModifiers(event, choice) {
   if (state.characterId === "taeo") {
     if ((effects.hp || 0) < 0 && (tags.has("RAIDER") || tags.has("combat") || tags.has("control"))) effects.hp += 1;
     if ((effects.battery || 0) < 0 && tags.has("control")) effects.battery += 1;
-    if ((effects.human || 0) > 0 && Math.random() < 0.5) effects.human = 0;
+    if ((effects.mind || 0) > 0 && Math.random() < 0.35) effects.mind = 0;
   }
 
   if (state.characterId === "harin") {
@@ -373,6 +367,15 @@ function applyTraitModifiers(event, choice) {
 function applyStatChange(stat, delta, result) {
   if (!visibleStats.includes(stat) || delta === 0) return;
   result.statChanged = true;
+
+  if ((stat === "hp" || stat === "food") && delta < 0) {
+    state[stat] = Math.max(0, state[stat] - 1);
+    if (state[stat] <= 0) {
+      addFlag(deathFlagByStat[stat]);
+      result.fatal = stat;
+    }
+    return;
+  }
 
   if (delta < 0 && state[stat] <= 0) {
     const crisisFlag = crisisFlagByStat[stat];
@@ -433,6 +436,9 @@ function removeFlag(flag) {
 }
 
 function checkEnding() {
+  if (state.hp <= 0) return endings.find((ending) => ending.id === "BAD_COLLAPSE");
+  if (state.food <= 0) return endings.find((ending) => ending.id === "BAD_HUNGER");
+
   const badFlag = state.flags.find((flag) => flag.startsWith("BAD_"));
   if (badFlag) return endings.find((ending) => ending.id === badFlag);
 
@@ -538,7 +544,7 @@ function renderResult(choice, result) {
   renderSceneImage(currentEvent);
   el.eventTitle.textContent = "생존 로그";
   const crisisText = result.crisisStarted.length
-    ? `\n\n몸이 버티지 못했다. 위기 상태에 들어갔다.`
+    ? `\n\n정신이 오래 버티지 못했다. 위기 상태에 들어갔다.`
     : "";
   el.eventText.textContent = `${choice.resultText || "하루가 지나갔다."}${crisisText}`;
   el.choices.innerHTML = "";

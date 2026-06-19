@@ -290,3 +290,40 @@ Ending spread:
 - The three character true endings all remain reachable.
 - `BAD_DECOMPRESSION` sits near the intended rare accident range.
 - The new hooks make truth-seeking runs longer and more character-driven instead of revealing the final truth too early.
+
+## Four-Stat Immediate Death Check
+
+After merging `human` and `sanity` into `mind`, and changing `hp` / `food` so that reaching 0 immediately ends the run:
+
+### Truth-Seeking Player
+
+- Total: 100
+- Average ending day: 35.77
+- True route locked: 84
+- Character true endings: 65
+- Bad endings: 21
+- Within 30 days: 17
+
+### Survival Player
+
+- Total: 100
+- Average ending day: 34.75
+- True route locked: 75
+- Character true endings: 61
+- Bad endings: 15
+- Within 30 days: 25
+
+### Random Player
+
+- Total: 100
+- Average ending day: 26.54
+- True route locked: 43
+- Character true endings: 31
+- Bad endings: 43
+- Within 30 days: 59
+
+### Read
+
+- `hp` and `food` now create clear visible danger: empty means death.
+- Ordinary events were softened so direct `hp` / `food` damage is less common outside risky choices and CRITICAL events.
+- Random play is still dangerous, while clue-following and survival-focused play remain finishable.

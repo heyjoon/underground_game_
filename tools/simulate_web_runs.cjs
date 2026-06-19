@@ -7,7 +7,7 @@ const eventList = JSON.parse(fs.readFileSync(path.join(root, "data/random_events
 const endings = JSON.parse(fs.readFileSync(path.join(root, "data/endings.json"), "utf8"));
 const eventsById = Object.fromEntries(eventList.map((event) => [event.id, event]));
 
-const visibleStats = ["hp", "food", "battery", "human", "sanity"];
+const visibleStats = ["hp", "food", "battery", "mind"];
 const baseCounters = {
   dayCount: 0,
   hungerPressure: 0,
@@ -28,16 +28,12 @@ const baseCharacterFlags = {
   selfishEscape: 0
 };
 const crisisFlagByStat = {
-  hp: "crisis_hp",
-  food: "crisis_food",
-  human: "crisis_human",
-  sanity: "crisis_sanity"
+  mind: "crisis_mind"
 };
 const deathFlagByStat = {
   hp: "BAD_COLLAPSE",
   food: "BAD_HUNGER",
-  human: "BAD_INHUMAN",
-  sanity: "BAD_MADNESS"
+  mind: "BAD_MADNESS"
 };
 const categoryWeights = [
   { maxDay: 5, weights: { SURVIVAL: 40, WORLD: 30, RAIDER: 8, ANOMALY: 12, STORY: 10 } },
@@ -81,8 +77,7 @@ function newState(character, rng) {
     hp: character.stats.hp,
     food: character.stats.food,
     battery: character.stats.battery,
-    human: character.stats.human,
-    sanity: character.stats.sanity,
+    mind: character.stats.mind,
     items: [],
     flags: [`CHARACTER_${character.id.toUpperCase()}`],
     crisis: [],
@@ -273,7 +268,7 @@ function scoreChoice(state, event, choice, strategy) {
     if (!visibleStats.includes(stat) || delta === 0) continue;
     const value = state[stat] || 0;
     const risk = value <= 1 && delta < 0 ? 7 : 0;
-    const weight = { hp: 5, food: 4, battery: 3, human: 3, sanity: 4 }[stat] || 2;
+    const weight = { hp: 5, food: 5, battery: 3, mind: 4 }[stat] || 2;
     score += Math.sign(delta) * weight - risk;
   }
 
@@ -335,7 +330,7 @@ function applyTraitModifiers(state, event, choice) {
   if (state.characterId === "taeo") {
     if ((effects.hp || 0) < 0 && (tags.has("RAIDER") || tags.has("combat") || tags.has("control"))) effects.hp += 1;
     if ((effects.battery || 0) < 0 && tags.has("control")) effects.battery += 1;
-    if ((effects.human || 0) > 0 && state.rng() < 0.5) effects.human = 0;
+    if ((effects.mind || 0) > 0 && state.rng() < 0.35) effects.mind = 0;
   }
   if (state.characterId === "harin") {
     if ((effects.hp || 0) < 0 && (tags.has("escape") || tags.has("closed") || tags.has("route"))) effects.hp += 1;
@@ -346,6 +341,11 @@ function applyTraitModifiers(state, event, choice) {
 
 function applyStatChange(state, stat, delta) {
   if (!visibleStats.includes(stat) || delta === 0) return;
+  if ((stat === "hp" || stat === "food") && delta < 0) {
+    state[stat] = Math.max(0, state[stat] - 1);
+    if (state[stat] <= 0) addFlag(state, deathFlagByStat[stat]);
+    return;
+  }
   if (delta < 0 && state[stat] <= 0) {
     const crisisFlag = crisisFlagByStat[stat];
     if (crisisFlag && state.crisis.includes(crisisFlag)) {
@@ -373,13 +373,15 @@ function maybeLockTrueRoute(state) {
   if (state.counters.dayCount > 30) return;
   const madeFinalSignal = state.flags.includes("BROADCAST_TRUTH") || state.flags.includes("AI_NEGOTIATED");
   const hasEnoughTruth = (state.counters.truthFlag || 0) >= 4 || (state.characterFlags.truth || 0) >= 4;
-  if (madeFinalSignal && hasEnoughTruth && state.human >= 1) {
+  if (madeFinalSignal && hasEnoughTruth && state.mind >= 1) {
     addFlag(state, "TRUE_ROUTE_LOCKED");
     state.trueRouteRiskDay = state.riskRng() < 0.08 ? 31 + Math.floor(state.riskRng() * 9) : null;
   }
 }
 
 function checkEnding(state) {
+  if (state.hp <= 0) return endings.find((ending) => ending.id === "BAD_COLLAPSE");
+  if (state.food <= 0) return endings.find((ending) => ending.id === "BAD_HUNGER");
   const badFlag = state.flags.find((flag) => flag.startsWith("BAD_"));
   if (badFlag) return endings.find((ending) => ending.id === badFlag);
   if (state.battery <= 0 && state.flags.includes("core_entry_failed")) {

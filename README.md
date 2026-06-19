@@ -34,8 +34,8 @@ http://127.0.0.1:4180/
   - 체력
   - 식량
   - 배터리
-  - 인간성
   - 정신
+- 체력 또는 식량이 0칸이 되면 즉시 배드엔딩으로 이어진다.
 - Daily play is driven by random survival, world, raider, disease, anomaly, story, and critical events.
 - Hidden counters drive tension and CRITICAL events.
 - Main story appears conditionally, not every day.

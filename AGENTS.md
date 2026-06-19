@@ -19,8 +19,7 @@ This project is a Korean text roguelike survival game titled **잔광 / DOWNLINK
   - `hp`
   - `food`
   - `battery`
-  - `human`
-  - `sanity`
+  - `mind`
 - Hidden systems drive the game:
   - `dayCount`
   - `hungerPressure`
@@ -39,6 +38,7 @@ This project is a Korean text roguelike survival game titled **잔광 / DOWNLINK
 - CRITICAL events must be checked before ordinary random events.
 - Recent events should not repeat immediately.
 - Reaching 0 in a visible stat should usually create a crisis state first.
+- `hp` and `food` are exceptions: reaching 0 immediately triggers a bad ending.
 - A second hit while already in crisis can trigger a bad ending.
 - Ending pacing rules live in `docs/ending-rules.md`.
 

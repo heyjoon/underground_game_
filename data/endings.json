@@ -176,7 +176,7 @@
     "conditions": {
       "requiredCharacter": "harin",
       "min": {
-        "human": 2
+        "mind": 2
       },
       "characterFlagsMin": {
         "hiddenRoute": 3

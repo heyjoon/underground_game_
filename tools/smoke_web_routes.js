@@ -34,8 +34,7 @@ function newState(characterId) {
     hp: character.stats.hp,
     food: character.stats.food,
     battery: character.stats.battery,
-    human: character.stats.human,
-    sanity: character.stats.sanity,
+    mind: character.stats.mind,
     flags: [`CHARACTER_${character.id.toUpperCase()}`],
     items: [],
     visited_events: [],
@@ -62,8 +61,9 @@ function apply(state, eventId, choiceIndex) {
   const choice = choices[choiceIndex];
   if (!choice) throw new Error(`missing choice ${eventId} #${choiceIndex}`);
   for (const [key, delta] of Object.entries(choice.effects || {})) {
-    if (["hp", "food", "battery", "human", "sanity"].includes(key)) {
-      state[key] = Math.max(0, Math.min(3, state[key] + Math.sign(delta)));
+    const statKey = key === "human" || key === "sanity" ? "mind" : key;
+    if (["hp", "food", "battery", "mind"].includes(statKey)) {
+      state[statKey] = Math.max(0, Math.min(3, state[statKey] + Math.sign(delta)));
     } else {
       state[key] = (state[key] || 0) + delta;
     }
